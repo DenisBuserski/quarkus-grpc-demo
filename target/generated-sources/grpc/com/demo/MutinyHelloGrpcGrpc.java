@@ -49,6 +49,10 @@ public final class MutinyHelloGrpcGrpc implements io.quarkus.grpc.MutinyGrpc {
             return io.quarkus.grpc.stubs.ClientCalls.oneToOne(request, delegateStub::getProductById);
         }
 
+        public io.smallrye.mutiny.Uni<com.demo.ProductResponse> insertProduct(com.demo.ProductRequest request) {
+            return io.quarkus.grpc.stubs.ClientCalls.oneToOne(request, delegateStub::insertProduct);
+        }
+
         public io.smallrye.mutiny.Multi<com.demo.NumberResponse> streamRandomNumbers(com.demo.NumberRequest request) {
             return io.quarkus.grpc.stubs.ClientCalls.oneToMany(request, delegateStub::streamRandomNumbers);
         }
@@ -82,13 +86,17 @@ public final class MutinyHelloGrpcGrpc implements io.quarkus.grpc.MutinyGrpc {
             throw new io.grpc.StatusRuntimeException(io.grpc.Status.UNIMPLEMENTED);
         }
 
+        public io.smallrye.mutiny.Uni<com.demo.ProductResponse> insertProduct(com.demo.ProductRequest request) {
+            throw new io.grpc.StatusRuntimeException(io.grpc.Status.UNIMPLEMENTED);
+        }
+
         public io.smallrye.mutiny.Multi<com.demo.NumberResponse> streamRandomNumbers(com.demo.NumberRequest request) {
             throw new io.grpc.StatusRuntimeException(io.grpc.Status.UNIMPLEMENTED);
         }
 
         @java.lang.Override
         public io.grpc.ServerServiceDefinition bindService() {
-            return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor()).addMethod(com.demo.HelloGrpcGrpc.getSayHelloMethod(), asyncUnaryCall(new MethodHandlers<com.demo.HelloRequest, com.demo.HelloReply>(this, METHODID_SAY_HELLO, compression))).addMethod(com.demo.HelloGrpcGrpc.getStreamRandomNumbersMethod(), asyncServerStreamingCall(new MethodHandlers<com.demo.NumberRequest, com.demo.NumberResponse>(this, METHODID_STREAM_RANDOM_NUMBERS, compression))).addMethod(com.demo.HelloGrpcGrpc.getGetProductByIdMethod(), asyncUnaryCall(new MethodHandlers<com.demo.ProductIdRequest, com.demo.ProductResponse>(this, METHODID_GET_PRODUCT_BY_ID, compression))).build();
+            return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor()).addMethod(com.demo.HelloGrpcGrpc.getSayHelloMethod(), asyncUnaryCall(new MethodHandlers<com.demo.HelloRequest, com.demo.HelloReply>(this, METHODID_SAY_HELLO, compression))).addMethod(com.demo.HelloGrpcGrpc.getStreamRandomNumbersMethod(), asyncServerStreamingCall(new MethodHandlers<com.demo.NumberRequest, com.demo.NumberResponse>(this, METHODID_STREAM_RANDOM_NUMBERS, compression))).addMethod(com.demo.HelloGrpcGrpc.getGetProductByIdMethod(), asyncUnaryCall(new MethodHandlers<com.demo.ProductIdRequest, com.demo.ProductResponse>(this, METHODID_GET_PRODUCT_BY_ID, compression))).addMethod(com.demo.HelloGrpcGrpc.getInsertProductMethod(), asyncUnaryCall(new MethodHandlers<com.demo.ProductRequest, com.demo.ProductResponse>(this, METHODID_INSERT_PRODUCT, compression))).build();
         }
     }
 
@@ -97,6 +105,8 @@ public final class MutinyHelloGrpcGrpc implements io.quarkus.grpc.MutinyGrpc {
     private static final int METHODID_STREAM_RANDOM_NUMBERS = 1;
 
     private static final int METHODID_GET_PRODUCT_BY_ID = 2;
+
+    private static final int METHODID_INSERT_PRODUCT = 3;
 
     private static final class MethodHandlers<Req, Resp> implements io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>, io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>, io.grpc.stub.ServerCalls.ClientStreamingMethod<Req, Resp>, io.grpc.stub.ServerCalls.BidiStreamingMethod<Req, Resp> {
 
@@ -124,6 +134,9 @@ public final class MutinyHelloGrpcGrpc implements io.quarkus.grpc.MutinyGrpc {
                     break;
                 case METHODID_GET_PRODUCT_BY_ID:
                     io.quarkus.grpc.stubs.ServerCalls.oneToOne((com.demo.ProductIdRequest) request, (io.grpc.stub.StreamObserver<com.demo.ProductResponse>) responseObserver, compression, serviceImpl::getProductById);
+                    break;
+                case METHODID_INSERT_PRODUCT:
+                    io.quarkus.grpc.stubs.ServerCalls.oneToOne((com.demo.ProductRequest) request, (io.grpc.stub.StreamObserver<com.demo.ProductResponse>) responseObserver, compression, serviceImpl::insertProduct);
                     break;
                 default:
                     throw new java.lang.AssertionError();

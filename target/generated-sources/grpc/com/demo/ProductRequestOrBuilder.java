@@ -3,7 +3,7 @@
 // Protobuf Java Version: 3.25.5
 package com.demo;
 
-public interface ProductResponseOrBuilder extends // @@protoc_insertion_point(interface_extends:hello.ProductResponse)
+public interface ProductRequestOrBuilder extends // @@protoc_insertion_point(interface_extends:hello.ProductRequest)
 com.google.protobuf.MessageOrBuilder {
 
     /**

@@ -36,6 +36,11 @@ public class HelloGrpcClient implements HelloGrpc, MutinyClient<MutinyHelloGrpcG
     }
 
     @Override
+    public io.smallrye.mutiny.Uni<com.demo.ProductResponse> insertProduct(com.demo.ProductRequest request) {
+        return stub.insertProduct(request);
+    }
+
+    @Override
     public io.smallrye.mutiny.Multi<com.demo.NumberResponse> streamRandomNumbers(com.demo.NumberRequest request) {
         return stub.streamRandomNumbers(request);
     }

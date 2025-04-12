@@ -63,6 +63,21 @@ public final class HelloGrpcGrpc {
         return getGetProductByIdMethod;
     }
 
+    private static volatile io.grpc.MethodDescriptor<com.demo.ProductRequest, com.demo.ProductResponse> getInsertProductMethod;
+
+    @io.grpc.stub.annotations.RpcMethod(fullMethodName = SERVICE_NAME + '/' + "InsertProduct", requestType = com.demo.ProductRequest.class, responseType = com.demo.ProductResponse.class, methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+    public static io.grpc.MethodDescriptor<com.demo.ProductRequest, com.demo.ProductResponse> getInsertProductMethod() {
+        io.grpc.MethodDescriptor<com.demo.ProductRequest, com.demo.ProductResponse> getInsertProductMethod;
+        if ((getInsertProductMethod = HelloGrpcGrpc.getInsertProductMethod) == null) {
+            synchronized (HelloGrpcGrpc.class) {
+                if ((getInsertProductMethod = HelloGrpcGrpc.getInsertProductMethod) == null) {
+                    HelloGrpcGrpc.getInsertProductMethod = getInsertProductMethod = io.grpc.MethodDescriptor.<com.demo.ProductRequest, com.demo.ProductResponse>newBuilder().setType(io.grpc.MethodDescriptor.MethodType.UNARY).setFullMethodName(generateFullMethodName(SERVICE_NAME, "InsertProduct")).setSampledToLocalTracing(true).setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(com.demo.ProductRequest.getDefaultInstance())).setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(com.demo.ProductResponse.getDefaultInstance())).setSchemaDescriptor(new HelloGrpcMethodDescriptorSupplier("InsertProduct")).build();
+                }
+            }
+        }
+        return getInsertProductMethod;
+    }
+
     /**
      * Creates a new async stub that supports all call types for the service
      */
@@ -130,6 +145,12 @@ public final class HelloGrpcGrpc {
         default void getProductById(com.demo.ProductIdRequest request, io.grpc.stub.StreamObserver<com.demo.ProductResponse> responseObserver) {
             io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetProductByIdMethod(), responseObserver);
         }
+
+        /**
+         */
+        default void insertProduct(com.demo.ProductRequest request, io.grpc.stub.StreamObserver<com.demo.ProductResponse> responseObserver) {
+            io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getInsertProductMethod(), responseObserver);
+        }
     }
 
     /**
@@ -182,6 +203,12 @@ public final class HelloGrpcGrpc {
         public void getProductById(com.demo.ProductIdRequest request, io.grpc.stub.StreamObserver<com.demo.ProductResponse> responseObserver) {
             io.grpc.stub.ClientCalls.asyncUnaryCall(getChannel().newCall(getGetProductByIdMethod(), getCallOptions()), request, responseObserver);
         }
+
+        /**
+         */
+        public void insertProduct(com.demo.ProductRequest request, io.grpc.stub.StreamObserver<com.demo.ProductResponse> responseObserver) {
+            io.grpc.stub.ClientCalls.asyncUnaryCall(getChannel().newCall(getInsertProductMethod(), getCallOptions()), request, responseObserver);
+        }
     }
 
     /**
@@ -219,6 +246,12 @@ public final class HelloGrpcGrpc {
         public com.demo.ProductResponse getProductById(com.demo.ProductIdRequest request) {
             return io.grpc.stub.ClientCalls.blockingUnaryCall(getChannel(), getGetProductByIdMethod(), getCallOptions(), request);
         }
+
+        /**
+         */
+        public com.demo.ProductResponse insertProduct(com.demo.ProductRequest request) {
+            return io.grpc.stub.ClientCalls.blockingUnaryCall(getChannel(), getInsertProductMethod(), getCallOptions(), request);
+        }
     }
 
     /**
@@ -250,6 +283,12 @@ public final class HelloGrpcGrpc {
         public com.google.common.util.concurrent.ListenableFuture<com.demo.ProductResponse> getProductById(com.demo.ProductIdRequest request) {
             return io.grpc.stub.ClientCalls.futureUnaryCall(getChannel().newCall(getGetProductByIdMethod(), getCallOptions()), request);
         }
+
+        /**
+         */
+        public com.google.common.util.concurrent.ListenableFuture<com.demo.ProductResponse> insertProduct(com.demo.ProductRequest request) {
+            return io.grpc.stub.ClientCalls.futureUnaryCall(getChannel().newCall(getInsertProductMethod(), getCallOptions()), request);
+        }
     }
 
     private static final int METHODID_SAY_HELLO = 0;
@@ -257,6 +296,8 @@ public final class HelloGrpcGrpc {
     private static final int METHODID_STREAM_RANDOM_NUMBERS = 1;
 
     private static final int METHODID_GET_PRODUCT_BY_ID = 2;
+
+    private static final int METHODID_INSERT_PRODUCT = 3;
 
     private static final class MethodHandlers<Req, Resp> implements io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>, io.grpc.stub.ServerCalls.ServerStreamingMethod<Req, Resp>, io.grpc.stub.ServerCalls.ClientStreamingMethod<Req, Resp>, io.grpc.stub.ServerCalls.BidiStreamingMethod<Req, Resp> {
 
@@ -282,6 +323,9 @@ public final class HelloGrpcGrpc {
                 case METHODID_GET_PRODUCT_BY_ID:
                     serviceImpl.getProductById((com.demo.ProductIdRequest) request, (io.grpc.stub.StreamObserver<com.demo.ProductResponse>) responseObserver);
                     break;
+                case METHODID_INSERT_PRODUCT:
+                    serviceImpl.insertProduct((com.demo.ProductRequest) request, (io.grpc.stub.StreamObserver<com.demo.ProductResponse>) responseObserver);
+                    break;
                 default:
                     throw new AssertionError();
             }
@@ -298,7 +342,7 @@ public final class HelloGrpcGrpc {
     }
 
     public static io.grpc.ServerServiceDefinition bindService(AsyncService service) {
-        return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor()).addMethod(getSayHelloMethod(), io.grpc.stub.ServerCalls.asyncUnaryCall(new MethodHandlers<com.demo.HelloRequest, com.demo.HelloReply>(service, METHODID_SAY_HELLO))).addMethod(getStreamRandomNumbersMethod(), io.grpc.stub.ServerCalls.asyncServerStreamingCall(new MethodHandlers<com.demo.NumberRequest, com.demo.NumberResponse>(service, METHODID_STREAM_RANDOM_NUMBERS))).addMethod(getGetProductByIdMethod(), io.grpc.stub.ServerCalls.asyncUnaryCall(new MethodHandlers<com.demo.ProductIdRequest, com.demo.ProductResponse>(service, METHODID_GET_PRODUCT_BY_ID))).build();
+        return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor()).addMethod(getSayHelloMethod(), io.grpc.stub.ServerCalls.asyncUnaryCall(new MethodHandlers<com.demo.HelloRequest, com.demo.HelloReply>(service, METHODID_SAY_HELLO))).addMethod(getStreamRandomNumbersMethod(), io.grpc.stub.ServerCalls.asyncServerStreamingCall(new MethodHandlers<com.demo.NumberRequest, com.demo.NumberResponse>(service, METHODID_STREAM_RANDOM_NUMBERS))).addMethod(getGetProductByIdMethod(), io.grpc.stub.ServerCalls.asyncUnaryCall(new MethodHandlers<com.demo.ProductIdRequest, com.demo.ProductResponse>(service, METHODID_GET_PRODUCT_BY_ID))).addMethod(getInsertProductMethod(), io.grpc.stub.ServerCalls.asyncUnaryCall(new MethodHandlers<com.demo.ProductRequest, com.demo.ProductResponse>(service, METHODID_INSERT_PRODUCT))).build();
     }
 
     private static abstract class HelloGrpcBaseDescriptorSupplier implements io.grpc.protobuf.ProtoFileDescriptorSupplier, io.grpc.protobuf.ProtoServiceDescriptorSupplier {
@@ -345,7 +389,7 @@ public final class HelloGrpcGrpc {
             synchronized (HelloGrpcGrpc.class) {
                 result = serviceDescriptor;
                 if (result == null) {
-                    serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME).setSchemaDescriptor(new HelloGrpcFileDescriptorSupplier()).addMethod(getSayHelloMethod()).addMethod(getStreamRandomNumbersMethod()).addMethod(getGetProductByIdMethod()).build();
+                    serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME).setSchemaDescriptor(new HelloGrpcFileDescriptorSupplier()).addMethod(getSayHelloMethod()).addMethod(getStreamRandomNumbersMethod()).addMethod(getGetProductByIdMethod()).addMethod(getInsertProductMethod()).build();
                 }
             }
         }

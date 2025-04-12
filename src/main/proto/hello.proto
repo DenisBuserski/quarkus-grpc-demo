@@ -14,6 +14,8 @@ service HelloGrpc {
     rpc StreamRandomNumbers (NumberRequest) returns (stream NumberResponse) {}
 
     rpc GetProductById (ProductIdRequest) returns (ProductResponse);
+
+    rpc InsertProduct (ProductRequest) returns (ProductResponse) {}
 }
 
 // "message" is an object used in method parameter or in return of it
@@ -42,6 +44,13 @@ message ProductIdRequest {
 
 message ProductResponse {
     string name = 1;
-    double price = 2;
-    int64 quantity = 3;
+    string price = 2;
+    int32 quantity = 3;
+}
+
+
+message ProductRequest {
+    string name = 1;
+    string price = 2;
+    int32 quantity = 3;
 }

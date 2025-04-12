@@ -7,29 +7,58 @@ import io.quarkus.grpc.GrpcService;
 
 import io.smallrye.mutiny.Multi;
 import io.smallrye.mutiny.Uni;
+import io.smallrye.mutiny.infrastructure.Infrastructure;
 import jakarta.inject.Inject;
+import lombok.extern.slf4j.Slf4j;
 
+import java.math.BigDecimal;
 import java.time.Duration;
-import java.util.Optional;
 import java.util.Random;
 
 
+@Slf4j
 @GrpcService
 public class HelloGrpcService implements HelloGrpc {
     @Inject
-    private ProductService productService;
+    ProductService productService;
+
+
+    @Override
+    public Uni<ProductResponse> insertProduct(ProductRequest request) {
+        String name = request.getName();
+        BigDecimal price = new BigDecimal(request.getPrice());
+        int quantity = request.getQuantity();
+        log.info("Inserting product with Name: [{}]; Price: [{}]; Quantity: [{}]", name, price, quantity);
+        return Uni.createFrom()
+                .item(() -> {
+                    Product product = productService.insertProduct(name, price, quantity);
+                    return product;
+                })
+                .runSubscriptionOn(Infrastructure.getDefaultWorkerPool()) // Moves to worker thread
+                .onItem()
+                .transform(product -> ProductResponse.newBuilder()
+                        .setName(product.getName())
+                        .setPrice(product.getPrice().toString())
+                        .setQuantity(product.getQuantity())
+                        .build()
+                );
+    }
 
     @Override
     public Uni<ProductResponse> getProductById(ProductIdRequest request) {
-        Optional<Product> product = productService.findProductById(request.getId());
-        if (product.isPresent()) {
-            String name = product.get().getName();
-            Uni.createFrom()
-                    .item("The product is " + name)
-                    .map(message -> ProductResponse.newBuilder().setName(message).build());
-        }
-        return Uni.createFrom().failure(new Throwable("Product not found"));
+        return Uni.createFrom()
+                .item(() -> productService.findProductById(request.getId()))
+                .runSubscriptionOn(Infrastructure.getDefaultWorkerPool())
+                .onItem()
+                .transform(product -> {
+                    if (product.isPresent()) {
+                        return ProductResponse.newBuilder().setName("The product is " + product.get().getName()).build();
+                    } else {
+                        throw new RuntimeException("Product not found");
+                    }
+                });
     }
+
 
 
     @Override

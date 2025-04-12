@@ -14,7 +14,7 @@ import java.util.Optional;
 public class ProductRepository implements PanacheRepository<Product> {
     public Optional<Product> findProductById(Long id) {
         String sql = """
-        select p from Product p where p.id = :productId
+        SELECT p FROM Product p WHERE p.id = :productId
         """;
         return find(sql, Parameters.with("productId", id)).stream().findAny();
     }
