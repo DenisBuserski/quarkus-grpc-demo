@@ -24,12 +24,24 @@
         </createTable>
     </changeSet>
 
-    <!-- ChangeSet for inserting sample data into the 'products' table -->
     <changeSet id="2" author="quarkus">
+        <createSequence sequenceName="products_seq" startValue="1" incrementBy="1"/>
+    </changeSet>
+
+    <!-- ChangeSet for inserting sample data into the 'products' table -->
+    <changeSet id="3" author="quarkus">
         <insert tableName="products">
             <column name="name" value="Apple"/>
             <column name="price" value="50.369"/>
             <column name="quantity" value="100"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="4" author="quarkus">
+        <insert tableName="products">
+            <column name="name" value="Banana"/>
+            <column name="price" value="50.25"/>
+            <column name="quantity" value="200"/>
         </insert>
     </changeSet>
 
