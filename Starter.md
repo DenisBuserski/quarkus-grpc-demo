@@ -4,8 +4,11 @@ Before starting the application, go to the folder `docker/docker-compose.yaml` a
 ```
 docker compose up -d
 ```
-
-To start the application run:
+Create the database schema:
+```postgresql
+CREATE DATABASE quarkus_db
+```
+Start the application:
 ```
 ./mvnw quarkus:dev
 ```
