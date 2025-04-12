@@ -1,0 +1,37 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog
+        https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <!-- ChangeSet for creating the 'product' table -->
+    <changeSet id="1" author="quarkus">
+        <createTable tableName="products">
+            <column name="id" type="BIGSERIAL"> <!-- BIGSERIAL for auto-incrementing -->
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price" type="decimal(10,3)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="quantity" type="integer"/>
+        </createTable>
+    </changeSet>
+
+    <!-- ChangeSet for inserting sample data into the 'products' table -->
+    <changeSet id="2" author="quarkus">
+        <insert tableName="products">
+            <column name="name" value="Apple"/>
+            <column name="price" value="50.369"/>
+            <column name="quantity" value="100"/>
+        </insert>
+    </changeSet>
+
+    <!-- Add more changesets as needed -->
+</databaseChangeLog>

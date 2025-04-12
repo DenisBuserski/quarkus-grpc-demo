@@ -3,7 +3,6 @@ package com.demo.service.impl;
 import com.demo.model.Product;
 import com.demo.repository.ProductRepository;
 import com.demo.service.ProductService;
-import io.smallrye.common.annotation.Blocking;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
