@@ -6,4 +6,8 @@ import io.quarkus.grpc.MutinyService;
 public interface HelloGrpc extends MutinyService {
 
     io.smallrye.mutiny.Uni<com.demo.HelloReply> sayHello(com.demo.HelloRequest request);
+
+    io.smallrye.mutiny.Uni<com.demo.ProductResponse> getProductById(com.demo.ProductIdRequest request);
+
+    io.smallrye.mutiny.Multi<com.demo.NumberResponse> streamRandomNumbers(com.demo.NumberRequest request);
 }

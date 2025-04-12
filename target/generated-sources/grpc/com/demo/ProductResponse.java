@@ -4,39 +4,35 @@
 package com.demo;
 
 /**
- * <pre>
- * "message" is an object used in method parameter or in return of it
- * </pre>
- *
- * Protobuf type {@code hello.HelloRequest}
+ * Protobuf type {@code hello.ProductResponse}
  */
-public final class HelloRequest extends com.google.protobuf.GeneratedMessageV3 implements // @@protoc_insertion_point(message_implements:hello.HelloRequest)
-HelloRequestOrBuilder {
+public final class ProductResponse extends com.google.protobuf.GeneratedMessageV3 implements // @@protoc_insertion_point(message_implements:hello.ProductResponse)
+ProductResponseOrBuilder {
 
     private static final long serialVersionUID = 0L;
 
-    // Use HelloRequest.newBuilder() to construct.
-    private HelloRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use ProductResponse.newBuilder() to construct.
+    private ProductResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
         super(builder);
     }
 
-    private HelloRequest() {
+    private ProductResponse() {
         name_ = "";
     }
 
     @java.lang.Override
     @SuppressWarnings({ "unused" })
     protected java.lang.Object newInstance(UnusedPrivateParameter unused) {
-        return new HelloRequest();
+        return new ProductResponse();
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
-        return com.demo.HelloGrpcProto.internal_static_hello_HelloRequest_descriptor;
+        return com.demo.HelloGrpcProto.internal_static_hello_ProductResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable internalGetFieldAccessorTable() {
-        return com.demo.HelloGrpcProto.internal_static_hello_HelloRequest_fieldAccessorTable.ensureFieldAccessorsInitialized(com.demo.HelloRequest.class, com.demo.HelloRequest.Builder.class);
+        return com.demo.HelloGrpcProto.internal_static_hello_ProductResponse_fieldAccessorTable.ensureFieldAccessorsInitialized(com.demo.ProductResponse.class, com.demo.ProductResponse.Builder.class);
     }
 
     public static final int NAME_FIELD_NUMBER = 1;
@@ -77,6 +73,32 @@ HelloRequestOrBuilder {
         }
     }
 
+    public static final int PRICE_FIELD_NUMBER = 2;
+
+    private double price_ = 0D;
+
+    /**
+     * <code>double price = 2;</code>
+     * @return The price.
+     */
+    @java.lang.Override
+    public double getPrice() {
+        return price_;
+    }
+
+    public static final int QUANTITY_FIELD_NUMBER = 3;
+
+    private long quantity_ = 0L;
+
+    /**
+     * <code>int64 quantity = 3;</code>
+     * @return The quantity.
+     */
+    @java.lang.Override
+    public long getQuantity() {
+        return quantity_;
+    }
+
     private byte memoizedIsInitialized = -1;
 
     @java.lang.Override
@@ -95,6 +117,12 @@ HelloRequestOrBuilder {
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
             com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
         }
+        if (java.lang.Double.doubleToRawLongBits(price_) != 0) {
+            output.writeDouble(2, price_);
+        }
+        if (quantity_ != 0L) {
+            output.writeInt64(3, quantity_);
+        }
         getUnknownFields().writeTo(output);
     }
 
@@ -107,6 +135,12 @@ HelloRequestOrBuilder {
         if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
             size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
         }
+        if (java.lang.Double.doubleToRawLongBits(price_) != 0) {
+            size += com.google.protobuf.CodedOutputStream.computeDoubleSize(2, price_);
+        }
+        if (quantity_ != 0L) {
+            size += com.google.protobuf.CodedOutputStream.computeInt64Size(3, quantity_);
+        }
         size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
         return size;
@@ -117,11 +151,15 @@ HelloRequestOrBuilder {
         if (obj == this) {
             return true;
         }
-        if (!(obj instanceof com.demo.HelloRequest)) {
+        if (!(obj instanceof com.demo.ProductResponse)) {
             return super.equals(obj);
         }
-        com.demo.HelloRequest other = (com.demo.HelloRequest) obj;
+        com.demo.ProductResponse other = (com.demo.ProductResponse) obj;
         if (!getName().equals(other.getName()))
+            return false;
+        if (java.lang.Double.doubleToLongBits(getPrice()) != java.lang.Double.doubleToLongBits(other.getPrice()))
+            return false;
+        if (getQuantity() != other.getQuantity())
             return false;
         if (!getUnknownFields().equals(other.getUnknownFields()))
             return false;
@@ -137,56 +175,60 @@ HelloRequestOrBuilder {
         hash = (19 * hash) + getDescriptor().hashCode();
         hash = (37 * hash) + NAME_FIELD_NUMBER;
         hash = (53 * hash) + getName().hashCode();
+        hash = (37 * hash) + PRICE_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(java.lang.Double.doubleToLongBits(getPrice()));
+        hash = (37 * hash) + QUANTITY_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getQuantity());
         hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
     }
 
-    public static com.demo.HelloRequest parseFrom(java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+    public static com.demo.ProductResponse parseFrom(java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
     }
 
-    public static com.demo.HelloRequest parseFrom(java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws com.google.protobuf.InvalidProtocolBufferException {
+    public static com.demo.ProductResponse parseFrom(java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
     }
 
-    public static com.demo.HelloRequest parseFrom(com.google.protobuf.ByteString data) throws com.google.protobuf.InvalidProtocolBufferException {
+    public static com.demo.ProductResponse parseFrom(com.google.protobuf.ByteString data) throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
     }
 
-    public static com.demo.HelloRequest parseFrom(com.google.protobuf.ByteString data, com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws com.google.protobuf.InvalidProtocolBufferException {
+    public static com.demo.ProductResponse parseFrom(com.google.protobuf.ByteString data, com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
     }
 
-    public static com.demo.HelloRequest parseFrom(byte[] data) throws com.google.protobuf.InvalidProtocolBufferException {
+    public static com.demo.ProductResponse parseFrom(byte[] data) throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
     }
 
-    public static com.demo.HelloRequest parseFrom(byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws com.google.protobuf.InvalidProtocolBufferException {
+    public static com.demo.ProductResponse parseFrom(byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
     }
 
-    public static com.demo.HelloRequest parseFrom(java.io.InputStream input) throws java.io.IOException {
+    public static com.demo.ProductResponse parseFrom(java.io.InputStream input) throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
 
-    public static com.demo.HelloRequest parseFrom(java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
+    public static com.demo.ProductResponse parseFrom(java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static com.demo.HelloRequest parseDelimitedFrom(java.io.InputStream input) throws java.io.IOException {
+    public static com.demo.ProductResponse parseDelimitedFrom(java.io.InputStream input) throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
     }
 
-    public static com.demo.HelloRequest parseDelimitedFrom(java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
+    public static com.demo.ProductResponse parseDelimitedFrom(java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static com.demo.HelloRequest parseFrom(com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+    public static com.demo.ProductResponse parseFrom(com.google.protobuf.CodedInputStream input) throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
 
-    public static com.demo.HelloRequest parseFrom(com.google.protobuf.CodedInputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
+    public static com.demo.ProductResponse parseFrom(com.google.protobuf.CodedInputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input, extensionRegistry);
     }
 
@@ -199,7 +241,7 @@ HelloRequestOrBuilder {
         return DEFAULT_INSTANCE.toBuilder();
     }
 
-    public static Builder newBuilder(com.demo.HelloRequest prototype) {
+    public static Builder newBuilder(com.demo.ProductResponse prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
 
@@ -215,25 +257,21 @@ HelloRequestOrBuilder {
     }
 
     /**
-     * <pre>
-     * "message" is an object used in method parameter or in return of it
-     * </pre>
-     *
-     * Protobuf type {@code hello.HelloRequest}
+     * Protobuf type {@code hello.ProductResponse}
      */
-    public static final class Builder extends com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements // @@protoc_insertion_point(builder_implements:hello.HelloRequest)
-    com.demo.HelloRequestOrBuilder {
+    public static final class Builder extends com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements // @@protoc_insertion_point(builder_implements:hello.ProductResponse)
+    com.demo.ProductResponseOrBuilder {
 
         public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
-            return com.demo.HelloGrpcProto.internal_static_hello_HelloRequest_descriptor;
+            return com.demo.HelloGrpcProto.internal_static_hello_ProductResponse_descriptor;
         }
 
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable internalGetFieldAccessorTable() {
-            return com.demo.HelloGrpcProto.internal_static_hello_HelloRequest_fieldAccessorTable.ensureFieldAccessorsInitialized(com.demo.HelloRequest.class, com.demo.HelloRequest.Builder.class);
+            return com.demo.HelloGrpcProto.internal_static_hello_ProductResponse_fieldAccessorTable.ensureFieldAccessorsInitialized(com.demo.ProductResponse.class, com.demo.ProductResponse.Builder.class);
         }
 
-        // Construct using com.demo.HelloRequest.newBuilder()
+        // Construct using com.demo.ProductResponse.newBuilder()
         private Builder() {
         }
 
@@ -246,22 +284,24 @@ HelloRequestOrBuilder {
             super.clear();
             bitField0_ = 0;
             name_ = "";
+            price_ = 0D;
+            quantity_ = 0L;
             return this;
         }
 
         @java.lang.Override
         public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
-            return com.demo.HelloGrpcProto.internal_static_hello_HelloRequest_descriptor;
+            return com.demo.HelloGrpcProto.internal_static_hello_ProductResponse_descriptor;
         }
 
         @java.lang.Override
-        public com.demo.HelloRequest getDefaultInstanceForType() {
-            return com.demo.HelloRequest.getDefaultInstance();
+        public com.demo.ProductResponse getDefaultInstanceForType() {
+            return com.demo.ProductResponse.getDefaultInstance();
         }
 
         @java.lang.Override
-        public com.demo.HelloRequest build() {
-            com.demo.HelloRequest result = buildPartial();
+        public com.demo.ProductResponse build() {
+            com.demo.ProductResponse result = buildPartial();
             if (!result.isInitialized()) {
                 throw newUninitializedMessageException(result);
             }
@@ -269,8 +309,8 @@ HelloRequestOrBuilder {
         }
 
         @java.lang.Override
-        public com.demo.HelloRequest buildPartial() {
-            com.demo.HelloRequest result = new com.demo.HelloRequest(this);
+        public com.demo.ProductResponse buildPartial() {
+            com.demo.ProductResponse result = new com.demo.ProductResponse(this);
             if (bitField0_ != 0) {
                 buildPartial0(result);
             }
@@ -278,10 +318,16 @@ HelloRequestOrBuilder {
             return result;
         }
 
-        private void buildPartial0(com.demo.HelloRequest result) {
+        private void buildPartial0(com.demo.ProductResponse result) {
             int from_bitField0_ = bitField0_;
             if (((from_bitField0_ & 0x00000001) != 0)) {
                 result.name_ = name_;
+            }
+            if (((from_bitField0_ & 0x00000002) != 0)) {
+                result.price_ = price_;
+            }
+            if (((from_bitField0_ & 0x00000004) != 0)) {
+                result.quantity_ = quantity_;
             }
         }
 
@@ -317,21 +363,27 @@ HelloRequestOrBuilder {
 
         @java.lang.Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
-            if (other instanceof com.demo.HelloRequest) {
-                return mergeFrom((com.demo.HelloRequest) other);
+            if (other instanceof com.demo.ProductResponse) {
+                return mergeFrom((com.demo.ProductResponse) other);
             } else {
                 super.mergeFrom(other);
                 return this;
             }
         }
 
-        public Builder mergeFrom(com.demo.HelloRequest other) {
-            if (other == com.demo.HelloRequest.getDefaultInstance())
+        public Builder mergeFrom(com.demo.ProductResponse other) {
+            if (other == com.demo.ProductResponse.getDefaultInstance())
                 return this;
             if (!other.getName().isEmpty()) {
                 name_ = other.name_;
                 bitField0_ |= 0x00000001;
                 onChanged();
+            }
+            if (other.getPrice() != 0D) {
+                setPrice(other.getPrice());
+            }
+            if (other.getQuantity() != 0L) {
+                setQuantity(other.getQuantity());
             }
             this.mergeUnknownFields(other.getUnknownFields());
             onChanged();
@@ -363,6 +415,20 @@ HelloRequestOrBuilder {
                                 break;
                             }
                         // case 10
+                        case 17:
+                            {
+                                price_ = input.readDouble();
+                                bitField0_ |= 0x00000002;
+                                break;
+                            }
+                        // case 17
+                        case 24:
+                            {
+                                quantity_ = input.readInt64();
+                                bitField0_ |= 0x00000004;
+                                break;
+                            }
+                        // case 24
                         default:
                             {
                                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
@@ -461,6 +527,74 @@ HelloRequestOrBuilder {
             return this;
         }
 
+        private double price_;
+
+        /**
+         * <code>double price = 2;</code>
+         * @return The price.
+         */
+        @java.lang.Override
+        public double getPrice() {
+            return price_;
+        }
+
+        /**
+         * <code>double price = 2;</code>
+         * @param value The price to set.
+         * @return This builder for chaining.
+         */
+        public Builder setPrice(double value) {
+            price_ = value;
+            bitField0_ |= 0x00000002;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>double price = 2;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearPrice() {
+            bitField0_ = (bitField0_ & ~0x00000002);
+            price_ = 0D;
+            onChanged();
+            return this;
+        }
+
+        private long quantity_;
+
+        /**
+         * <code>int64 quantity = 3;</code>
+         * @return The quantity.
+         */
+        @java.lang.Override
+        public long getQuantity() {
+            return quantity_;
+        }
+
+        /**
+         * <code>int64 quantity = 3;</code>
+         * @param value The quantity to set.
+         * @return This builder for chaining.
+         */
+        public Builder setQuantity(long value) {
+            quantity_ = value;
+            bitField0_ |= 0x00000004;
+            onChanged();
+            return this;
+        }
+
+        /**
+         * <code>int64 quantity = 3;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearQuantity() {
+            bitField0_ = (bitField0_ & ~0x00000004);
+            quantity_ = 0L;
+            onChanged();
+            return this;
+        }
+
         @java.lang.Override
         public final Builder setUnknownFields(final com.google.protobuf.UnknownFieldSet unknownFields) {
             return super.setUnknownFields(unknownFields);
@@ -470,24 +604,24 @@ HelloRequestOrBuilder {
         public final Builder mergeUnknownFields(final com.google.protobuf.UnknownFieldSet unknownFields) {
             return super.mergeUnknownFields(unknownFields);
         }
-        // @@protoc_insertion_point(builder_scope:hello.HelloRequest)
+        // @@protoc_insertion_point(builder_scope:hello.ProductResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:hello.HelloRequest)
-    private static final com.demo.HelloRequest DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:hello.ProductResponse)
+    private static final com.demo.ProductResponse DEFAULT_INSTANCE;
 
     static {
-        DEFAULT_INSTANCE = new com.demo.HelloRequest();
+        DEFAULT_INSTANCE = new com.demo.ProductResponse();
     }
 
-    public static com.demo.HelloRequest getDefaultInstance() {
+    public static com.demo.ProductResponse getDefaultInstance() {
         return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<HelloRequest> PARSER = new com.google.protobuf.AbstractParser<HelloRequest>() {
+    private static final com.google.protobuf.Parser<ProductResponse> PARSER = new com.google.protobuf.AbstractParser<ProductResponse>() {
 
         @java.lang.Override
-        public HelloRequest parsePartialFrom(com.google.protobuf.CodedInputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws com.google.protobuf.InvalidProtocolBufferException {
+        public ProductResponse parsePartialFrom(com.google.protobuf.CodedInputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws com.google.protobuf.InvalidProtocolBufferException {
             Builder builder = newBuilder();
             try {
                 builder.mergeFrom(input, extensionRegistry);
@@ -502,17 +636,17 @@ HelloRequestOrBuilder {
         }
     };
 
-    public static com.google.protobuf.Parser<HelloRequest> parser() {
+    public static com.google.protobuf.Parser<ProductResponse> parser() {
         return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<HelloRequest> getParserForType() {
+    public com.google.protobuf.Parser<ProductResponse> getParserForType() {
         return PARSER;
     }
 
     @java.lang.Override
-    public com.demo.HelloRequest getDefaultInstanceForType() {
+    public com.demo.ProductResponse getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
     }
 }

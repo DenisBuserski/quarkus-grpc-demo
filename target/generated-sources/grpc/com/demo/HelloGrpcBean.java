@@ -21,4 +21,22 @@ public class HelloGrpcBean extends MutinyHelloGrpcGrpc.HelloGrpcImplBase impleme
             throw new io.grpc.StatusRuntimeException(io.grpc.Status.UNIMPLEMENTED);
         }
     }
+
+    @Override
+    public io.smallrye.mutiny.Uni<com.demo.ProductResponse> getProductById(com.demo.ProductIdRequest request) {
+        try {
+            return delegate.getProductById(request);
+        } catch (UnsupportedOperationException e) {
+            throw new io.grpc.StatusRuntimeException(io.grpc.Status.UNIMPLEMENTED);
+        }
+    }
+
+    @Override
+    public io.smallrye.mutiny.Multi<com.demo.NumberResponse> streamRandomNumbers(com.demo.NumberRequest request) {
+        try {
+            return delegate.streamRandomNumbers(request);
+        } catch (UnsupportedOperationException e) {
+            throw new io.grpc.StatusRuntimeException(io.grpc.Status.UNIMPLEMENTED);
+        }
+    }
 }

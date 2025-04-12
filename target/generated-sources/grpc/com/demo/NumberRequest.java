@@ -4,77 +4,47 @@
 package com.demo;
 
 /**
- * <pre>
- * "message" is an object used in method parameter or in return of it
- * </pre>
- *
- * Protobuf type {@code hello.HelloRequest}
+ * Protobuf type {@code hello.NumberRequest}
  */
-public final class HelloRequest extends com.google.protobuf.GeneratedMessageV3 implements // @@protoc_insertion_point(message_implements:hello.HelloRequest)
-HelloRequestOrBuilder {
+public final class NumberRequest extends com.google.protobuf.GeneratedMessageV3 implements // @@protoc_insertion_point(message_implements:hello.NumberRequest)
+NumberRequestOrBuilder {
 
     private static final long serialVersionUID = 0L;
 
-    // Use HelloRequest.newBuilder() to construct.
-    private HelloRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use NumberRequest.newBuilder() to construct.
+    private NumberRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
         super(builder);
     }
 
-    private HelloRequest() {
-        name_ = "";
+    private NumberRequest() {
     }
 
     @java.lang.Override
     @SuppressWarnings({ "unused" })
     protected java.lang.Object newInstance(UnusedPrivateParameter unused) {
-        return new HelloRequest();
+        return new NumberRequest();
     }
 
     public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
-        return com.demo.HelloGrpcProto.internal_static_hello_HelloRequest_descriptor;
+        return com.demo.HelloGrpcProto.internal_static_hello_NumberRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable internalGetFieldAccessorTable() {
-        return com.demo.HelloGrpcProto.internal_static_hello_HelloRequest_fieldAccessorTable.ensureFieldAccessorsInitialized(com.demo.HelloRequest.class, com.demo.HelloRequest.Builder.class);
+        return com.demo.HelloGrpcProto.internal_static_hello_NumberRequest_fieldAccessorTable.ensureFieldAccessorsInitialized(com.demo.NumberRequest.class, com.demo.NumberRequest.Builder.class);
     }
 
-    public static final int NAME_FIELD_NUMBER = 1;
+    public static final int COUNT_FIELD_NUMBER = 1;
 
-    @SuppressWarnings("serial")
-    private volatile java.lang.Object name_ = "";
-
-    /**
-     * <code>string name = 1;</code>
-     * @return The name.
-     */
-    @java.lang.Override
-    public java.lang.String getName() {
-        java.lang.Object ref = name_;
-        if (ref instanceof java.lang.String) {
-            return (java.lang.String) ref;
-        } else {
-            com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
-            java.lang.String s = bs.toStringUtf8();
-            name_ = s;
-            return s;
-        }
-    }
+    private long count_ = 0L;
 
     /**
-     * <code>string name = 1;</code>
-     * @return The bytes for name.
+     * <code>int64 count = 1;</code>
+     * @return The count.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString getNameBytes() {
-        java.lang.Object ref = name_;
-        if (ref instanceof java.lang.String) {
-            com.google.protobuf.ByteString b = com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
-            name_ = b;
-            return b;
-        } else {
-            return (com.google.protobuf.ByteString) ref;
-        }
+    public long getCount() {
+        return count_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -92,8 +62,8 @@ HelloRequestOrBuilder {
 
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output) throws java.io.IOException {
-        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-            com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+        if (count_ != 0L) {
+            output.writeInt64(1, count_);
         }
         getUnknownFields().writeTo(output);
     }
@@ -104,8 +74,8 @@ HelloRequestOrBuilder {
         if (size != -1)
             return size;
         size = 0;
-        if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(name_)) {
-            size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+        if (count_ != 0L) {
+            size += com.google.protobuf.CodedOutputStream.computeInt64Size(1, count_);
         }
         size += getUnknownFields().getSerializedSize();
         memoizedSize = size;
@@ -117,11 +87,11 @@ HelloRequestOrBuilder {
         if (obj == this) {
             return true;
         }
-        if (!(obj instanceof com.demo.HelloRequest)) {
+        if (!(obj instanceof com.demo.NumberRequest)) {
             return super.equals(obj);
         }
-        com.demo.HelloRequest other = (com.demo.HelloRequest) obj;
-        if (!getName().equals(other.getName()))
+        com.demo.NumberRequest other = (com.demo.NumberRequest) obj;
+        if (getCount() != other.getCount())
             return false;
         if (!getUnknownFields().equals(other.getUnknownFields()))
             return false;
@@ -135,58 +105,58 @@ HelloRequestOrBuilder {
         }
         int hash = 41;
         hash = (19 * hash) + getDescriptor().hashCode();
-        hash = (37 * hash) + NAME_FIELD_NUMBER;
-        hash = (53 * hash) + getName().hashCode();
+        hash = (37 * hash) + COUNT_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(getCount());
         hash = (29 * hash) + getUnknownFields().hashCode();
         memoizedHashCode = hash;
         return hash;
     }
 
-    public static com.demo.HelloRequest parseFrom(java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
+    public static com.demo.NumberRequest parseFrom(java.nio.ByteBuffer data) throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
     }
 
-    public static com.demo.HelloRequest parseFrom(java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws com.google.protobuf.InvalidProtocolBufferException {
+    public static com.demo.NumberRequest parseFrom(java.nio.ByteBuffer data, com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
     }
 
-    public static com.demo.HelloRequest parseFrom(com.google.protobuf.ByteString data) throws com.google.protobuf.InvalidProtocolBufferException {
+    public static com.demo.NumberRequest parseFrom(com.google.protobuf.ByteString data) throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
     }
 
-    public static com.demo.HelloRequest parseFrom(com.google.protobuf.ByteString data, com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws com.google.protobuf.InvalidProtocolBufferException {
+    public static com.demo.NumberRequest parseFrom(com.google.protobuf.ByteString data, com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
     }
 
-    public static com.demo.HelloRequest parseFrom(byte[] data) throws com.google.protobuf.InvalidProtocolBufferException {
+    public static com.demo.NumberRequest parseFrom(byte[] data) throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data);
     }
 
-    public static com.demo.HelloRequest parseFrom(byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws com.google.protobuf.InvalidProtocolBufferException {
+    public static com.demo.NumberRequest parseFrom(byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws com.google.protobuf.InvalidProtocolBufferException {
         return PARSER.parseFrom(data, extensionRegistry);
     }
 
-    public static com.demo.HelloRequest parseFrom(java.io.InputStream input) throws java.io.IOException {
+    public static com.demo.NumberRequest parseFrom(java.io.InputStream input) throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
 
-    public static com.demo.HelloRequest parseFrom(java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
+    public static com.demo.NumberRequest parseFrom(java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static com.demo.HelloRequest parseDelimitedFrom(java.io.InputStream input) throws java.io.IOException {
+    public static com.demo.NumberRequest parseDelimitedFrom(java.io.InputStream input) throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input);
     }
 
-    public static com.demo.HelloRequest parseDelimitedFrom(java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
+    public static com.demo.NumberRequest parseDelimitedFrom(java.io.InputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3.parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public static com.demo.HelloRequest parseFrom(com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+    public static com.demo.NumberRequest parseFrom(com.google.protobuf.CodedInputStream input) throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input);
     }
 
-    public static com.demo.HelloRequest parseFrom(com.google.protobuf.CodedInputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
+    public static com.demo.NumberRequest parseFrom(com.google.protobuf.CodedInputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws java.io.IOException {
         return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER, input, extensionRegistry);
     }
 
@@ -199,7 +169,7 @@ HelloRequestOrBuilder {
         return DEFAULT_INSTANCE.toBuilder();
     }
 
-    public static Builder newBuilder(com.demo.HelloRequest prototype) {
+    public static Builder newBuilder(com.demo.NumberRequest prototype) {
         return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
 
@@ -215,25 +185,21 @@ HelloRequestOrBuilder {
     }
 
     /**
-     * <pre>
-     * "message" is an object used in method parameter or in return of it
-     * </pre>
-     *
-     * Protobuf type {@code hello.HelloRequest}
+     * Protobuf type {@code hello.NumberRequest}
      */
-    public static final class Builder extends com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements // @@protoc_insertion_point(builder_implements:hello.HelloRequest)
-    com.demo.HelloRequestOrBuilder {
+    public static final class Builder extends com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements // @@protoc_insertion_point(builder_implements:hello.NumberRequest)
+    com.demo.NumberRequestOrBuilder {
 
         public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
-            return com.demo.HelloGrpcProto.internal_static_hello_HelloRequest_descriptor;
+            return com.demo.HelloGrpcProto.internal_static_hello_NumberRequest_descriptor;
         }
 
         @java.lang.Override
         protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable internalGetFieldAccessorTable() {
-            return com.demo.HelloGrpcProto.internal_static_hello_HelloRequest_fieldAccessorTable.ensureFieldAccessorsInitialized(com.demo.HelloRequest.class, com.demo.HelloRequest.Builder.class);
+            return com.demo.HelloGrpcProto.internal_static_hello_NumberRequest_fieldAccessorTable.ensureFieldAccessorsInitialized(com.demo.NumberRequest.class, com.demo.NumberRequest.Builder.class);
         }
 
-        // Construct using com.demo.HelloRequest.newBuilder()
+        // Construct using com.demo.NumberRequest.newBuilder()
         private Builder() {
         }
 
@@ -245,23 +211,23 @@ HelloRequestOrBuilder {
         public Builder clear() {
             super.clear();
             bitField0_ = 0;
-            name_ = "";
+            count_ = 0L;
             return this;
         }
 
         @java.lang.Override
         public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
-            return com.demo.HelloGrpcProto.internal_static_hello_HelloRequest_descriptor;
+            return com.demo.HelloGrpcProto.internal_static_hello_NumberRequest_descriptor;
         }
 
         @java.lang.Override
-        public com.demo.HelloRequest getDefaultInstanceForType() {
-            return com.demo.HelloRequest.getDefaultInstance();
+        public com.demo.NumberRequest getDefaultInstanceForType() {
+            return com.demo.NumberRequest.getDefaultInstance();
         }
 
         @java.lang.Override
-        public com.demo.HelloRequest build() {
-            com.demo.HelloRequest result = buildPartial();
+        public com.demo.NumberRequest build() {
+            com.demo.NumberRequest result = buildPartial();
             if (!result.isInitialized()) {
                 throw newUninitializedMessageException(result);
             }
@@ -269,8 +235,8 @@ HelloRequestOrBuilder {
         }
 
         @java.lang.Override
-        public com.demo.HelloRequest buildPartial() {
-            com.demo.HelloRequest result = new com.demo.HelloRequest(this);
+        public com.demo.NumberRequest buildPartial() {
+            com.demo.NumberRequest result = new com.demo.NumberRequest(this);
             if (bitField0_ != 0) {
                 buildPartial0(result);
             }
@@ -278,10 +244,10 @@ HelloRequestOrBuilder {
             return result;
         }
 
-        private void buildPartial0(com.demo.HelloRequest result) {
+        private void buildPartial0(com.demo.NumberRequest result) {
             int from_bitField0_ = bitField0_;
             if (((from_bitField0_ & 0x00000001) != 0)) {
-                result.name_ = name_;
+                result.count_ = count_;
             }
         }
 
@@ -317,21 +283,19 @@ HelloRequestOrBuilder {
 
         @java.lang.Override
         public Builder mergeFrom(com.google.protobuf.Message other) {
-            if (other instanceof com.demo.HelloRequest) {
-                return mergeFrom((com.demo.HelloRequest) other);
+            if (other instanceof com.demo.NumberRequest) {
+                return mergeFrom((com.demo.NumberRequest) other);
             } else {
                 super.mergeFrom(other);
                 return this;
             }
         }
 
-        public Builder mergeFrom(com.demo.HelloRequest other) {
-            if (other == com.demo.HelloRequest.getDefaultInstance())
+        public Builder mergeFrom(com.demo.NumberRequest other) {
+            if (other == com.demo.NumberRequest.getDefaultInstance())
                 return this;
-            if (!other.getName().isEmpty()) {
-                name_ = other.name_;
-                bitField0_ |= 0x00000001;
-                onChanged();
+            if (other.getCount() != 0L) {
+                setCount(other.getCount());
             }
             this.mergeUnknownFields(other.getUnknownFields());
             onChanged();
@@ -356,13 +320,13 @@ HelloRequestOrBuilder {
                         case 0:
                             done = true;
                             break;
-                        case 10:
+                        case 8:
                             {
-                                name_ = input.readStringRequireUtf8();
+                                count_ = input.readInt64();
                                 bitField0_ |= 0x00000001;
                                 break;
                             }
-                        // case 10
+                        // case 8
                         default:
                             {
                                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
@@ -386,77 +350,36 @@ HelloRequestOrBuilder {
 
         private int bitField0_;
 
-        private java.lang.Object name_ = "";
+        private long count_;
 
         /**
-         * <code>string name = 1;</code>
-         * @return The name.
+         * <code>int64 count = 1;</code>
+         * @return The count.
          */
-        public java.lang.String getName() {
-            java.lang.Object ref = name_;
-            if (!(ref instanceof java.lang.String)) {
-                com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                name_ = s;
-                return s;
-            } else {
-                return (java.lang.String) ref;
-            }
+        @java.lang.Override
+        public long getCount() {
+            return count_;
         }
 
         /**
-         * <code>string name = 1;</code>
-         * @return The bytes for name.
-         */
-        public com.google.protobuf.ByteString getNameBytes() {
-            java.lang.Object ref = name_;
-            if (ref instanceof String) {
-                com.google.protobuf.ByteString b = com.google.protobuf.ByteString.copyFromUtf8((java.lang.String) ref);
-                name_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        /**
-         * <code>string name = 1;</code>
-         * @param value The name to set.
+         * <code>int64 count = 1;</code>
+         * @param value The count to set.
          * @return This builder for chaining.
          */
-        public Builder setName(java.lang.String value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            name_ = value;
+        public Builder setCount(long value) {
+            count_ = value;
             bitField0_ |= 0x00000001;
             onChanged();
             return this;
         }
 
         /**
-         * <code>string name = 1;</code>
+         * <code>int64 count = 1;</code>
          * @return This builder for chaining.
          */
-        public Builder clearName() {
-            name_ = getDefaultInstance().getName();
+        public Builder clearCount() {
             bitField0_ = (bitField0_ & ~0x00000001);
-            onChanged();
-            return this;
-        }
-
-        /**
-         * <code>string name = 1;</code>
-         * @param value The bytes for name to set.
-         * @return This builder for chaining.
-         */
-        public Builder setNameBytes(com.google.protobuf.ByteString value) {
-            if (value == null) {
-                throw new NullPointerException();
-            }
-            checkByteStringIsUtf8(value);
-            name_ = value;
-            bitField0_ |= 0x00000001;
+            count_ = 0L;
             onChanged();
             return this;
         }
@@ -470,24 +393,24 @@ HelloRequestOrBuilder {
         public final Builder mergeUnknownFields(final com.google.protobuf.UnknownFieldSet unknownFields) {
             return super.mergeUnknownFields(unknownFields);
         }
-        // @@protoc_insertion_point(builder_scope:hello.HelloRequest)
+        // @@protoc_insertion_point(builder_scope:hello.NumberRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:hello.HelloRequest)
-    private static final com.demo.HelloRequest DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:hello.NumberRequest)
+    private static final com.demo.NumberRequest DEFAULT_INSTANCE;
 
     static {
-        DEFAULT_INSTANCE = new com.demo.HelloRequest();
+        DEFAULT_INSTANCE = new com.demo.NumberRequest();
     }
 
-    public static com.demo.HelloRequest getDefaultInstance() {
+    public static com.demo.NumberRequest getDefaultInstance() {
         return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<HelloRequest> PARSER = new com.google.protobuf.AbstractParser<HelloRequest>() {
+    private static final com.google.protobuf.Parser<NumberRequest> PARSER = new com.google.protobuf.AbstractParser<NumberRequest>() {
 
         @java.lang.Override
-        public HelloRequest parsePartialFrom(com.google.protobuf.CodedInputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws com.google.protobuf.InvalidProtocolBufferException {
+        public NumberRequest parsePartialFrom(com.google.protobuf.CodedInputStream input, com.google.protobuf.ExtensionRegistryLite extensionRegistry) throws com.google.protobuf.InvalidProtocolBufferException {
             Builder builder = newBuilder();
             try {
                 builder.mergeFrom(input, extensionRegistry);
@@ -502,17 +425,17 @@ HelloRequestOrBuilder {
         }
     };
 
-    public static com.google.protobuf.Parser<HelloRequest> parser() {
+    public static com.google.protobuf.Parser<NumberRequest> parser() {
         return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<HelloRequest> getParserForType() {
+    public com.google.protobuf.Parser<NumberRequest> getParserForType() {
         return PARSER;
     }
 
     @java.lang.Override
-    public com.demo.HelloRequest getDefaultInstanceForType() {
+    public com.demo.NumberRequest getDefaultInstanceForType() {
         return DEFAULT_INSTANCE;
     }
 }
