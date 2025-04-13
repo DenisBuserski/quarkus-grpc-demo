@@ -29,7 +29,7 @@ public class ProductServiceImpl implements ProductService {
                 .price(price)
                 .quantity(quantity)
                 .build();
-        product.persist();
+        productRepository.persist(product);
         return product;
     }
 }
