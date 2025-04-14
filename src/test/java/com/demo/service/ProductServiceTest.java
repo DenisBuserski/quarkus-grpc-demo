@@ -23,7 +23,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @QuarkusTest
-@ExtendWith(MockitoExtension.class)
 public class ProductServiceTest {
     @Inject
     ProductService productService;

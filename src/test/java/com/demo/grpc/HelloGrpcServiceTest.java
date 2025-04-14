@@ -1,10 +1,11 @@
-package com.demo;
+package com.demo.grpc;
 
 import java.math.BigDecimal;
 import java.time.Duration;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.demo.*;
 import com.demo.model.Product;
 import com.demo.service.ProductService;
 import io.quarkus.grpc.GrpcClient;
