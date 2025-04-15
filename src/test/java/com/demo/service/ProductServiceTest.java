@@ -48,6 +48,9 @@ public class ProductServiceTest {
     @Test
     @DisplayName("Test insert product")
     @TestTransaction
+    // @Transactional annotation on tests, means that the changes your test makes to the database will be persistent. If
+    // you want any changes made to be rolled back at the end of the test you can use the @TestTransaction. This will
+    // run the test method in a transaction, but roll it back once the test method is complete to revert any database changes.
     public void testInsertProduct() {
         mockProduct = productService.insertProduct("Apple", new BigDecimal("19.99"), 10);
 
