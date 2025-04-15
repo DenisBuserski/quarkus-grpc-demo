@@ -39,9 +39,9 @@ public class ProductServiceTest {
                 .price(new BigDecimal("19.99"))
                 .quantity(10)
                 .build();
-
-        doNothing().when(productRepository).persist(any(Product.class));
-        when(productRepository.findProductById(anyLong())).thenReturn(Optional.of(mockProduct));
+        
+        when(productRepository.findProductById(1L)).thenReturn(Optional.of(mockProduct));
+        when(productRepository.findProductById(99L)).thenReturn(Optional.empty());
     }
 
 
@@ -52,21 +52,34 @@ public class ProductServiceTest {
     // you want any changes made to be rolled back at the end of the test you can use the @TestTransaction. This will
     // run the test method in a transaction, but roll it back once the test method is complete to revert any database changes.
     public void testInsertProduct() {
+        doNothing().when(productRepository).persist(any(Product.class));
         mockProduct = productService.insertProduct("Apple", new BigDecimal("19.99"), 10);
 
         assertEquals("Apple", mockProduct.getName());
         assertEquals(new BigDecimal("19.99"), mockProduct.getPrice());
         assertEquals(10, mockProduct.getQuantity());
 
-        verify(productRepository, times(1)).persist(mockProduct);
+        verify(productRepository, times(1)).persist(any(Product.class));
     }
 
     @Test
-    @DisplayName("Test find product by id")
+    @DisplayName("Test find product by id when there is a product")
     void testFindProductById() {
-        Optional<Product> foundProduct = productService.findProductById(mockProduct.getId());
+        Optional<Product> foundProduct = productService.findProductById(1L);
 
         assertTrue(foundProduct.isPresent());
         assertEquals("Apple", foundProduct.get().getName());
+
+        verify(productRepository).findProductById(1L);
+    }
+
+    @Test
+    @DisplayName("Test find product by id when there is no product")
+    void testFindProductByIdNotFound() {
+        Optional<Product> foundProduct = productService.findProductById(99L);
+
+        assertFalse(foundProduct.isPresent());
+
+        verify(productRepository).findProductById(99L);
     }
 }

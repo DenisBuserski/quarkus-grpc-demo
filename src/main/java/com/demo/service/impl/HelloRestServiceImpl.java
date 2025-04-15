@@ -9,4 +9,9 @@ public class HelloRestServiceImpl implements HelloRestService {
     public String hello() {
         return "Hello";
     }
+
+    @Override
+    public String greeting(String name) {
+        return "Hello " + name;
+    }
 }

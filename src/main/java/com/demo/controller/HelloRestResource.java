@@ -23,7 +23,7 @@ public class HelloRestResource {
     @Produces(MediaType.TEXT_PLAIN)
     @Path("/greeting/{name}")
     public String greeting(@PathParam("name") String name) {
-        return "Hello " + name;
+        return helloRestService.greeting(name);
     }
 
 }

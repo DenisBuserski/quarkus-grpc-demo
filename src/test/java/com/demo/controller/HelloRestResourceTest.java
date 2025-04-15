@@ -1,10 +1,10 @@
 package com.demo.controller;
 
 import com.demo.service.HelloRestService;
+import io.quarkus.test.InjectMock;
 import io.quarkus.test.common.http.TestHTTPEndpoint;
 import io.quarkus.test.common.http.TestHTTPResource;
 import io.quarkus.test.junit.QuarkusTest;
-import io.quarkus.test.junit.mockito.InjectSpy;
 import org.junit.jupiter.api.Test;
 
 
@@ -21,12 +21,13 @@ public class HelloRestResourceTest {
     @TestHTTPResource
     URL url;
 
-    @InjectSpy
+    @InjectMock
     HelloRestService helloRestService;
 
     @Test
     public void testHelloEndpoint() {
         when(helloRestService.hello()).thenReturn("Hello");
+
         given().when()
                 .get(url)
                 .then()
@@ -34,17 +35,20 @@ public class HelloRestResourceTest {
                 .body(is("Hello"));
 
         verify(helloRestService, times(1)).hello();
-        doReturn("Hello").when(helloRestService).hello();
     }
 
     @Test
     public void testGreetingEndpoint() {
         String name = "Test";
+        when(helloRestService.greeting(name)).thenReturn("Hello " + name);
+
         given().pathParam("name", name)
                 .when()
                 .get(url + "/greeting/{name}")
                 .then()
                 .statusCode(200)
                 .body(is("Hello " + name));
+
+        verify(helloRestService).greeting(name);
     }
 }
