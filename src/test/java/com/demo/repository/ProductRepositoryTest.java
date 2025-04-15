@@ -10,8 +10,7 @@ import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
 import java.util.Optional;
 
-import static io.smallrye.common.constraint.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 @QuarkusTest
 class ProductRepositoryTest {
@@ -20,7 +19,7 @@ class ProductRepositoryTest {
     ProductRepository productRepository;
 
     @Test
-    @DisplayName("Test find product by id")
+    @DisplayName("Test find product by id when there is a product")
     @TestTransaction
     void testFindProductById() {
         Product product = Product.builder()
@@ -31,9 +30,9 @@ class ProductRepositoryTest {
         productRepository.persist(product);
 
         Optional<Product> productById = productRepository.findProductById(product.getId());
-
-        // Verify: Check that the retrieved product matches the original
+        
         assertTrue(productById.isPresent());
         assertEquals("Test product name", productById.get().getName());
     }
+
 }

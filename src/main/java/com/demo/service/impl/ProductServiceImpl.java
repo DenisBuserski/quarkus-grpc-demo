@@ -15,7 +15,6 @@ public class ProductServiceImpl implements ProductService {
     @Inject
     ProductRepository productRepository;
 
-
     @Override
     public Optional<Product> findProductById(Long id) {
         return productRepository.findProductById(id);
