@@ -30,7 +30,7 @@ class ProductRepositoryTest {
         productRepository.persist(product);
 
         Optional<Product> productById = productRepository.findProductById(product.getId());
-        
+
         assertTrue(productById.isPresent());
         assertEquals("Test product name", productById.get().getName());
     }
