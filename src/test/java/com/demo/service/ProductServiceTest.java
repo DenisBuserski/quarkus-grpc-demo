@@ -39,9 +39,6 @@ public class ProductServiceTest {
                 .price(new BigDecimal("19.99"))
                 .quantity(10)
                 .build();
-        
-        when(productRepository.findProductById(1L)).thenReturn(Optional.of(mockProduct));
-        when(productRepository.findProductById(99L)).thenReturn(Optional.empty());
     }
 
 
@@ -65,6 +62,8 @@ public class ProductServiceTest {
     @Test
     @DisplayName("Test find product by id when there is a product")
     void testFindProductById() {
+        when(productRepository.findProductById(1L)).thenReturn(Optional.of(mockProduct));
+
         Optional<Product> foundProduct = productService.findProductById(1L);
 
         assertTrue(foundProduct.isPresent());
@@ -76,6 +75,8 @@ public class ProductServiceTest {
     @Test
     @DisplayName("Test find product by id when there is no product")
     void testFindProductByIdNotFound() {
+        when(productRepository.findProductById(99L)).thenReturn(Optional.empty());
+
         Optional<Product> foundProduct = productService.findProductById(99L);
 
         assertFalse(foundProduct.isPresent());
