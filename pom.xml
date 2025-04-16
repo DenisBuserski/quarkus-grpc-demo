@@ -36,10 +36,17 @@
             <scope>test</scope>
         </dependency>
 
+<!--        RESTEasy Classic-->
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-resteasy</artifactId>
         </dependency>
+
+<!--        Reactive REST Client-->
+<!--        <dependency>-->
+<!--            <groupId>io.quarkus</groupId>-->
+<!--            <artifactId>quarkus-rest-client-jackson</artifactId>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>io.quarkus</groupId>
@@ -50,7 +57,6 @@
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-jackson2-provider</artifactId>
         </dependency>
-
 
         <dependency>
             <groupId>io.quarkus</groupId>
