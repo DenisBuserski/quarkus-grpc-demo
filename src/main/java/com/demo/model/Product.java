@@ -1,8 +1,8 @@
 package com.demo.model;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import jakarta.persistence.*;
 import lombok.*;
+import org.eclipse.microprofile.openapi.annotations.media.Schema;
 
 import java.math.BigDecimal;
 
@@ -13,6 +13,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Schema(name = "Product", description = "Product representation")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
