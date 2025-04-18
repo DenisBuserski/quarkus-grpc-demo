@@ -22,9 +22,17 @@ public class TvSeriesResource {
 //
 //    @GET
 //    @Produces(MediaType.APPLICATION_JSON)
-//    public Response getTvSeries() {
-//        TvSerie tvSerie = tvSerieProxy.get("Game of Thrones");
+//    @Timeout(2000)
+//    @CircuitBreaker(requestVolumeThreshold = 4, failureRatio = 0.5, delay = 8000, successThreshold = 2)
+//    @Retry(maxRetries = 4)
+//    @Fallback(fallbackMethod = "fallbackGet")
+//    public Response getTvSeries(@QueryParam("title") String title) {
+//        TvSerie tvSerie = tvSerieProxy.get(title);
 //        tvSeries.add(tvSerie);
 //        return Response.ok(tvSeries).build();
+//    }
+
+//    private Response fallbackGet(String title) {
+//        return Response.ok(new ArrayList<>()).build();
 //    }
 }
