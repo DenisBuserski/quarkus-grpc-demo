@@ -9,8 +9,8 @@ import jakarta.ws.rs.core.MediaType;
 // import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
 
-// @RegisterRestClient(baseUri = "https://api.tvmaze.com")
-//@RegisterRestClient
+//@RegisterRestClient(baseUri = "https://api.tvmaze.com")
+////@RegisterRestClient
 //@Path("/singlesearch")
 //@Produces(MediaType.APPLICATION_JSON)
 public interface TvProxy {
