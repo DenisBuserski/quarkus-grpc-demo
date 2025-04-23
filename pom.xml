@@ -36,17 +36,18 @@
             <scope>test</scope>
         </dependency>
 
-<!--        RESTEasy Classic-->
+
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-resteasy</artifactId>
         </dependency>
 
-<!--        Reactive REST Client-->
-<!--        <dependency>-->
-<!--            <groupId>io.quarkus</groupId>-->
-<!--            <artifactId>quarkus-rest-client-jackson</artifactId>-->
-<!--        </dependency>-->
+        <!--        Reactive REST Client-->
+        <!--        <dependency>-->
+        <!--            <groupId>io.quarkus</groupId>-->
+        <!--            <artifactId>quarkus-rest-client-jackson</artifactId>-->
+        <!--        </dependency>-->
+
 
         <dependency>
             <groupId>io.quarkus</groupId>
@@ -216,4 +217,5 @@
             </properties>
         </profile>
     </profiles>
+
 </project>

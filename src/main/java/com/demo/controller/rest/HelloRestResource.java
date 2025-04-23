@@ -4,6 +4,8 @@ import com.demo.model.Product;
 import com.demo.model.dto.ProductDTO;
 import com.demo.model.dto.ProductRESTRequest;
 import com.demo.model.dto.ProductRESTResponse;
+import com.demo.service.HelloRestService;
+import com.demo.service.ProductService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;

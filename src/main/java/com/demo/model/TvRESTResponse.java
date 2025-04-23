@@ -8,11 +8,11 @@ import java.util.Set;
 
 @Getter
 @Setter
-public class TvSerie {
+public class TvRESTResponse {
     private long id;
-    private String name;
     private URL url;
-    private String summary;
+    private String name;
+    private String type;
     private String language;
     private Set<String> generes;
     private URL officialSite;

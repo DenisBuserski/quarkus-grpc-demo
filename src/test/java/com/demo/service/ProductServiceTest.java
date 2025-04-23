@@ -1,9 +1,11 @@
 package com.demo.service;
 
 import com.demo.model.Product;
+import com.demo.model.dto.ProductDTO;
 import com.demo.repository.ProductRepository;
 import io.quarkus.test.InjectMock;
 import io.quarkus.test.TestTransaction;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.mockito.Mock;
 import org.junit.jupiter.api.BeforeEach;
@@ -25,11 +27,18 @@ public class ProductServiceTest {
 
     @InjectMock
     ProductService productService;
-    
+
+    private ProductDTO mockProductDTO;
     private Product mockProduct;
 
     @BeforeEach
     public void setUp() {
+        mockProductDTO = ProductDTO.builder()
+                .name("Apple")
+                .price(new BigDecimal("19.99"))
+                .quantity(10)
+                .build();
+
         mockProduct = Product.builder()
                 .name("Apple")
                 .price(new BigDecimal("19.99"))
@@ -46,7 +55,8 @@ public class ProductServiceTest {
     // run the test method in a transaction, but roll it back once the test method is complete to revert any database changes.
     public void testInsertProduct() {
         doNothing().when(productRepository).persist(any(Product.class));
-        mockProduct = productService.insertProduct("Apple", new BigDecimal("19.99"), 10);
+
+        Product mockProduct = productService.insertProduct(mockProductDTO);
 
         assertEquals("Apple", mockProduct.getName());
         assertEquals(new BigDecimal("19.99"), mockProduct.getPrice());

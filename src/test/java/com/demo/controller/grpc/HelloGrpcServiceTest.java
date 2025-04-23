@@ -1,4 +1,4 @@
-package com.demo.grpc;
+package com.demo.controller.grpc;
 
 import java.math.BigDecimal;
 import java.time.Duration;
@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import com.demo.*;
 import com.demo.model.Product;
+import com.demo.service.ProductService;
 import io.quarkus.grpc.GrpcClient;
 import io.quarkus.test.InjectMock;
 import io.quarkus.test.junit.QuarkusTest;
@@ -38,7 +39,7 @@ class HelloGrpcServiceTest {
                 .quantity(10)
                 .build();
 
-        when(productService.insertProduct(anyString(), any(), anyInt())).thenReturn(mockProduct);
+        // when(productService.insertProduct(anyString(), any(), anyInt())).thenReturn(mockProduct);
     }
 
 

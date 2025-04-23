@@ -1,6 +1,6 @@
-package com.demo.controller;
+package com.demo.controller.rest;
 
-import com.demo.controller.rest.HelloRestResource;
+import com.demo.service.HelloRestService;
 import io.quarkus.test.InjectMock;
 import io.quarkus.test.common.http.TestHTTPEndpoint;
 import io.quarkus.test.common.http.TestHTTPResource;
