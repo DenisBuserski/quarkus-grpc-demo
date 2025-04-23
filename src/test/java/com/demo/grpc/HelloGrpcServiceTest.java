@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 
 import com.demo.*;
 import com.demo.model.Product;
-import com.demo.service.ProductService;
 import io.quarkus.grpc.GrpcClient;
 import io.quarkus.test.InjectMock;
 import io.quarkus.test.junit.QuarkusTest;

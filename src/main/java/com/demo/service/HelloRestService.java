@@ -1,7 +1,15 @@
 package com.demo.service;
 
-public interface HelloRestService {
-    String hello();
+import jakarta.enterprise.context.ApplicationScoped;
 
-    String greeting(String name);
+@ApplicationScoped
+public class HelloRestService {
+
+    public String hello() {
+        return "Hello";
+    }
+
+    public String greeting(String name) {
+        return "Hello " + name;
+    }
 }

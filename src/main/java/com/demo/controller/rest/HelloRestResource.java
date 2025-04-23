@@ -1,8 +1,9 @@
-package com.demo.controller;
+package com.demo.controller.rest;
 
 import com.demo.model.Product;
-import com.demo.service.HelloRestService;
-import com.demo.service.ProductService;
+import com.demo.model.dto.ProductDTO;
+import com.demo.model.dto.ProductRESTRequest;
+import com.demo.model.dto.ProductRESTResponse;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -15,7 +16,6 @@ import org.eclipse.microprofile.openapi.annotations.parameters.RequestBody;
 import org.eclipse.microprofile.openapi.annotations.responses.APIResponse;
 import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 
-import java.math.BigDecimal;
 import java.util.Optional;
 
 @Path("/hello")
@@ -64,12 +64,28 @@ public class HelloRestResource {
         @RequestBody(
             description = "Person to create",
             content = @Content(schema = @Schema(implementation = Product.class)))
-        Product product) {
-        String name = product.getName();
-        BigDecimal price = product.getPrice();
-        int quantity = product.getQuantity();
-        productService.insertProduct(name, price, quantity);
-        return Response.status(Response.Status.CREATED).entity(product).build();
+        ProductRESTRequest productRESTRequest) {
+
+        ProductDTO productDTO = mapProductRequestToProductDTO(productRESTRequest);
+        Product product = productService.insertProduct(productDTO);
+        ProductRESTResponse productRESTResponse = mapProductToProductResponse(product);
+        return Response.status(Response.Status.CREATED).entity(productRESTResponse).build();
+    }
+
+    private ProductDTO mapProductRequestToProductDTO(ProductRESTRequest productRESTRequest) {
+        return ProductDTO.builder()
+                .name(productRESTRequest.getName())
+                .price(productRESTRequest.getPrice())
+                .quantity(productRESTRequest.getQuantity())
+                .build();
+    }
+
+    private ProductRESTResponse mapProductToProductResponse(Product product) {
+        return ProductRESTResponse.builder()
+                .name(product.getName())
+                .price(product.getPrice())
+                .quantity(product.getQuantity())
+                .build();
     }
 
     @GET

@@ -2,18 +2,14 @@ package com.demo.service;
 
 import com.demo.model.Product;
 import com.demo.repository.ProductRepository;
-import com.demo.service.impl.ProductServiceImpl;
 import io.quarkus.test.InjectMock;
 import io.quarkus.test.TestTransaction;
-import io.quarkus.test.junit.QuarkusTest;
-import jakarta.inject.Inject;
 import org.junit.jupiter.api.DisplayName;
 import org.mockito.Mock;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.math.BigDecimal;
@@ -22,14 +18,14 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-@QuarkusTest
+@ExtendWith(MockitoExtension.class)
 public class ProductServiceTest {
-    @Inject
-    ProductService productService;
-
-    @InjectMock
+    @Mock
     ProductRepository productRepository;
 
+    @InjectMock
+    ProductService productService;
+    
     private Product mockProduct;
 
     @BeforeEach

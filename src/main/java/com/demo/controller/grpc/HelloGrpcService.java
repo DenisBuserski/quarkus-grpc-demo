@@ -1,7 +1,8 @@
-package com.demo.grpc;
+package com.demo.controller.grpc;
 
 import com.demo.*;
 import com.demo.model.Product;
+import com.demo.model.dto.ProductDTO;
 import com.demo.service.ProductService;
 import io.quarkus.grpc.GrpcService;
 
@@ -13,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.math.BigDecimal;
 import java.time.Duration;
+import java.util.Optional;
 import java.util.Random;
 
 
@@ -22,43 +24,46 @@ public class HelloGrpcService implements HelloGrpc {
     @Inject
     ProductService productService;
 
-
     @Override
-    public Uni<ProductResponse> insertProduct(ProductRequest request) {
-        String name = request.getName();
-        BigDecimal price = new BigDecimal(request.getPrice());
-        int quantity = request.getQuantity();
-        log.info("Inserting product with Name: [{}]; Price: [{}]; Quantity: [{}]", name, price, quantity);
+    public Uni<ProductResponse> insertProduct(ProductRequest productRequest) {
+        ProductDTO productDTO = mapProductRequestToProductDTO(productRequest);
         return Uni.createFrom()
-                .item(() -> {
-                    Product product = productService.insertProduct(name, price, quantity);
-                    return product;
-                })
-                .runSubscriptionOn(Infrastructure.getDefaultWorkerPool()) // Moves to worker thread
+                .item(() -> productService.insertProduct(productDTO))
+                .runSubscriptionOn(Infrastructure.getDefaultWorkerPool())
                 .onItem()
-                .transform(product -> ProductResponse.newBuilder()
-                        .setName(product.getName())
-                        .setPrice(product.getPrice().toString())
-                        .setQuantity(product.getQuantity())
-                        .build()
-                );
+                .transform(this::mapProductToProductResponse);
+    }
+
+    private ProductDTO mapProductRequestToProductDTO(ProductRequest productRequest) {
+        return ProductDTO.builder()
+                .name(productRequest.getName())
+                .price(new BigDecimal(productRequest.getPrice()))
+                .quantity(productRequest.getQuantity())
+                .build();
+    }
+
+    private ProductResponse mapProductToProductResponse(Product product) {
+        return ProductResponse.newBuilder()
+                .setName(product.getName())
+                .setPrice(product.getPrice().toString())
+                .setQuantity(product.getQuantity())
+                .build();
     }
 
     @Override
     public Uni<ProductResponse> getProductById(ProductIdRequest request) {
+        long productId = request.getId();
         return Uni.createFrom()
-                .item(() -> productService.findProductById(request.getId()))
+                .item(() -> productService.findProductById(productId))
                 .runSubscriptionOn(Infrastructure.getDefaultWorkerPool())
                 .onItem()
-                .transform(product -> {
-                    if (product.isPresent()) {
-                        return ProductResponse.newBuilder().setName("The product is " + product.get().getName()).build();
-                    } else {
-                        throw new RuntimeException("Product not found");
-                    }
-                });
+                .transform(this::mapOptionalProductToProductResponse);
     }
 
+    private ProductResponse mapOptionalProductToProductResponse(Optional<Product> product) {
+        return product.map(this::mapProductToProductResponse)
+                .orElseGet(() -> ProductResponse.newBuilder().build());
+    }
 
 
     @Override
