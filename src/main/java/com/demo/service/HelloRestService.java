@@ -6,7 +6,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 public class HelloRestService {
 
     public String hello() {
-        return "Hello";
+        return "Hello World";
     }
 
     public String greeting(String name) {

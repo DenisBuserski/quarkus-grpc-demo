@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @Builder
-public class ProductRESTResponse {
+public class ProductRestRequest {
     private String name;
     private BigDecimal price;
     private int quantity;
