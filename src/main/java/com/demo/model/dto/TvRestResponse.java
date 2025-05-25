@@ -1,4 +1,4 @@
-package com.demo.model;
+package com.demo.model.dto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,12 +8,12 @@ import java.util.Set;
 
 @Getter
 @Setter
-public class TvRESTResponse {
+public class TvRestResponse {
     private long id;
     private URL url;
     private String name;
-    private String type;
+    private String summary;
     private String language;
-    private Set<String> generes;
+    private Set<String> genres;
     private URL officialSite;
 }
