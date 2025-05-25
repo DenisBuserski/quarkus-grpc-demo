@@ -34,10 +34,10 @@ public class TvRestResource {
     @GET
     @Path("/get")
     @Produces(MediaType.APPLICATION_JSON)
-    // @Timeout(2000)
-    // @CircuitBreaker(requestVolumeThreshold = 4, failureRatio = 0.5, delay = 8000, successThreshold = 2)
-    // @Retry(maxRetries = 4)
-    // @Fallback(fallbackMethod = "fallbackGet")
+//    @Timeout(2000)
+//    @CircuitBreaker(requestVolumeThreshold = 4, failureRatio = 0.5, delay = 8000, successThreshold = 2)
+//    @Retry(maxRetries = 4)
+//    @Fallback(fallbackMethod = "fallbackGet")
     public Response getTvSeries(@QueryParam("title") String title) {
         log.info("Connecting to [{}]", serverURL);
         TvRestResponse tvRESTResponse = tvProxy.get(title);
