@@ -1,8 +1,5 @@
 package com.demo.controller.rest;
 
-// import org.eclipse.microprofile.rest.client.inject.RestClient;
-
-
 import com.demo.model.dto.TvRestResponse;
 import com.demo.proxy.TvProxy;
 import jakarta.ws.rs.GET;
@@ -13,6 +10,7 @@ import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
+import org.eclipse.microprofile.faulttolerance.Fallback;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import java.net.URL;
@@ -37,7 +35,7 @@ public class TvRestResource {
 //    @Timeout(2000)
 //    @CircuitBreaker(requestVolumeThreshold = 4, failureRatio = 0.5, delay = 8000, successThreshold = 2)
 //    @Retry(maxRetries = 4)
-//    @Fallback(fallbackMethod = "fallbackGet")
+    @Fallback(fallbackMethod = "fallbackGet")
     public Response getTvSeries(@QueryParam("title") String title) {
         log.info("Connecting to [{}]", serverURL);
         TvRestResponse tvRESTResponse = tvProxy.get(title);
@@ -45,7 +43,8 @@ public class TvRestResource {
         return Response.ok(tvSeries).build();
     }
 
-//    private Response fallbackGet(String title) {
-//        return Response.ok(new ArrayList<>()).build();
-//    }
+    private Response fallbackGet(String title) {
+        return Response.ok(new ArrayList<>()).build();
+    }
+
 }
