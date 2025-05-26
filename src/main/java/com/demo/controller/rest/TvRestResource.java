@@ -24,7 +24,7 @@ import java.util.List;
 @Slf4j
 public class TvRestResource {
 
-    @RestClient
+    @RestClient // Automatically includes @Inject behavior
     TvProxy tvProxy;
 
     @ConfigProperty(name = "tv.proxy.url")
