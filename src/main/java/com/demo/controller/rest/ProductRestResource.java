@@ -1,5 +1,6 @@
 package com.demo.controller.rest;
 
+import com.demo.mapper.ProductMapper;
 import com.demo.model.Product;
 import com.demo.model.dto.ProductDTO;
 import com.demo.model.dto.ProductRestRequest;
@@ -25,6 +26,9 @@ public class ProductRestResource {
     @Inject
     ProductService productService;
 
+    @Inject
+    ProductMapper productMapper;
+
     @POST
     @Path("/create")
     @Produces(MediaType.APPLICATION_JSON)
@@ -44,7 +48,8 @@ public class ProductRestResource {
             ProductRestRequest productRESTRequest) {
         ProductDTO productDTO = mapProductRestRequestToProductDTO(productRESTRequest);
         Product product = productService.insertProduct(productDTO);
-        ProductRestResponse productRESTResponse = mapProductToProductRestResponse(product);
+        // ProductRestResponse productRESTResponse = mapProductToProductRestResponse(product);
+        ProductRestResponse productRESTResponse = productMapper.mapProductToProductRestResponse(product);
         return Response.status(Response.Status.CREATED).entity(productRESTResponse).build();
     }
 
