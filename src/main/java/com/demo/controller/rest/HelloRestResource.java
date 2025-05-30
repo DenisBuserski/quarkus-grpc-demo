@@ -1,5 +1,6 @@
 package com.demo.controller.rest;
 
+import com.demo.config.CustomConfig;
 import com.demo.service.HelloRestService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
@@ -15,6 +16,9 @@ import org.eclipse.microprofile.openapi.annotations.tags.Tag;
 public class HelloRestResource {
     @Inject
     HelloRestService helloRestService;
+
+    @Inject
+    CustomConfig customConfig;
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
@@ -35,6 +39,13 @@ public class HelloRestResource {
     @Path("/greeting/{name}")
     public String greeting(@PathParam("name") String name) {
         return helloRestService.greeting(name);
+    }
+
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    @Path("/test")
+    public String test() {
+        return customConfig.message();
     }
 
 

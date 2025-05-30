@@ -27,7 +27,7 @@ public class TvRestResource {
     @RestClient // Automatically includes @Inject behavior
     TvProxy tvProxy;
 
-    @ConfigProperty(name = "tv.proxy.url")
+    @ConfigProperty(name = "tv.proxy.url", defaultValue = "http://localhost:8080")
     URL serverURL;
 
     List<TvRestResponse> tvSeries = new ArrayList<>();

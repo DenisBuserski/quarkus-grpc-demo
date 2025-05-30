@@ -1,6 +1,5 @@
 package com.demo.integration;
 
-import com.demo.mapper.ProductMapper;
 import io.quarkus.test.junit.QuarkusTest;
 import jakarta.json.Json;
 import jakarta.json.JsonObject;
@@ -11,7 +10,6 @@ import java.math.BigDecimal;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.hasItem;
-import static org.mockito.Mockito.mock;
 
 @QuarkusTest
 @Tag("integration")
