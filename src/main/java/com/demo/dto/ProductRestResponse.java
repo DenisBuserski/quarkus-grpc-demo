@@ -1,4 +1,4 @@
-package com.demo.model.dto;
+package com.demo.dto;
 
 import lombok.*;
 
@@ -9,7 +9,7 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @Builder
-public class ProductDTO {
+public class ProductRestResponse {
     private String name;
     private BigDecimal price;
     private int quantity;

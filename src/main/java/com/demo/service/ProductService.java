@@ -1,7 +1,7 @@
 package com.demo.service;
 
 import com.demo.model.Product;
-import com.demo.model.dto.ProductDTO;
+import com.demo.dto.ProductDTO;
 import com.demo.repository.ProductRepository;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;

@@ -1,7 +1,7 @@
 package com.demo.mapper;
 
 import com.demo.model.Product;
-import com.demo.model.dto.ProductRestResponse;
+import com.demo.dto.ProductRestResponse;
 import org.mapstruct.Mapper;
 
 @Mapper(config = QuarkusMappingConfig.class)

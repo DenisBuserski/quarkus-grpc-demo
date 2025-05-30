@@ -2,7 +2,7 @@ package com.demo.controller.grpc;
 
 import com.demo.*;
 import com.demo.model.Product;
-import com.demo.model.dto.ProductDTO;
+import com.demo.dto.ProductDTO;
 import com.demo.service.ProductService;
 import io.quarkus.grpc.GrpcService;
 

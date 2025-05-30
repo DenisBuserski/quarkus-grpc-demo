@@ -2,9 +2,9 @@ package com.demo.controller.rest;
 
 import com.demo.mapper.ProductMapper;
 import com.demo.model.Product;
-import com.demo.model.dto.ProductDTO;
-import com.demo.model.dto.ProductRestRequest;
-import com.demo.model.dto.ProductRestResponse;
+import com.demo.dto.ProductDTO;
+import com.demo.dto.ProductRestRequest;
+import com.demo.dto.ProductRestResponse;
 import com.demo.service.ProductService;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;

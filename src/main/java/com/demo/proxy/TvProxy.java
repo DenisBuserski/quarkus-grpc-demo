@@ -1,6 +1,6 @@
 package com.demo.proxy;
 
-import com.demo.model.dto.TvRestResponse;
+import com.demo.dto.TvRestResponse;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;

@@ -1,11 +1,10 @@
 package com.demo.service;
 
 import com.demo.model.Product;
-import com.demo.model.dto.ProductDTO;
+import com.demo.dto.ProductDTO;
 import com.demo.repository.ProductRepository;
 import io.quarkus.test.InjectMock;
 import io.quarkus.test.TestTransaction;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.mockito.Mock;
 import org.junit.jupiter.api.BeforeEach;

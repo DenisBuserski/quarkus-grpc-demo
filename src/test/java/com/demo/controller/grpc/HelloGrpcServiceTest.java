@@ -7,15 +7,10 @@ import java.util.stream.Collectors;
 
 import com.demo.*;
 import com.demo.model.Product;
-import com.demo.model.dto.ProductDTO;
+import com.demo.dto.ProductDTO;
 import com.demo.service.ProductService;
-import io.quarkus.grpc.GrpcClient;
-import io.quarkus.test.InjectMock;
-
-import io.quarkus.test.junit.QuarkusTest;
 
 import io.smallrye.mutiny.Multi;
-import io.smallrye.mutiny.Uni;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
