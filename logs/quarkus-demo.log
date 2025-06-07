@@ -1,19 +1,30 @@
-2025-06-07 15:41:51,478 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[44281] INFO  [org.ecl.jet.uti.log] (pool-2-thread-1) Logging initialized @3957ms to org.eclipse.jetty.util.log.Slf4jLog
-2025-06-07 15:41:51,538 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[44281] INFO  [org.ecl.jet.ser.Server] (pool-2-thread-1) jetty-9.4.40.v20210413; built: 2021-04-13T20:42:42.668Z; git: b881a572662e1943a14ae12e7e1207989f218b74; jvm 23.0.1+11-39
-2025-06-07 15:41:51,550 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[44281] INFO  [org.ecl.jet.ser.han.ContextHandler] (pool-2-thread-1) Started o.e.j.s.ServletContextHandler@e17b2b9{/__admin,null,AVAILABLE}
-2025-06-07 15:41:51,552 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[44281] INFO  [org.ecl.jet.ser.han.ContextHandler] (pool-2-thread-1) Started o.e.j.s.ServletContextHandler@1e1332e3{/,null,AVAILABLE}
-2025-06-07 15:41:51,561 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[44281] INFO  [org.ecl.jet.ser.AbstractConnector] (pool-2-thread-1) Started NetworkTrafficServerConnector@881d4d0{HTTP/1.1, (http/1.1, h2c)}{0.0.0.0:8089}
-2025-06-07 15:41:51,561 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[44281] INFO  [org.ecl.jet.ser.Server] (pool-2-thread-1) Started @4041ms
-2025-06-07 15:41:51,742 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[44281] INFO  [org.ecl.jet.ser.han.Con.__admin] (qtp1642993850-101) RequestHandlerClass from context returned com.github.tomakehurst.wiremock.http.AdminRequestHandler. Normalized mapped under returned 'null'
-2025-06-07 15:41:52,016 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[44281] INFO  [org.hib.jpa.int.uti.LogHelper] (main) HHH000204: Processing PersistenceUnitInfo [name: <default>]
-2025-06-07 15:41:52,057 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[44281] INFO  [org.hib.Version] (main) HHH000412: Hibernate ORM core version 6.6.14.Final
-2025-06-07 15:41:52,123 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[44281] WARN  [org.hib.orm.deprecation] (main) HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-06-07 15:41:52,131 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[44281] INFO  [org.hib.orm.con.pooling] (main) HHH10001005: Database info:
-	Database JDBC URL [undefined/unknown]
-	Database driver: undefined/unknown
-	Database version: 2.3.230
-	Autocommit mode: undefined/unknown
-	Isolation level: <unknown>
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-06-07 15:41:52,317 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[44281] WARN  [io.qua.config] (main) Unrecognized configuration key "quarkus.grpc.server.enable" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+2025-06-07 21:25:56,317 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[202335] WARN  [io.qua.config] (Quarkus Main Thread) Unrecognized configuration key "quarkus.grpc.server.enable" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+2025-06-07 21:25:56,746 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[202335] INFO  [liq.database] (Quarkus Main Thread) Set default schema name to public
+2025-06-07 21:25:56,809 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[202335] INFO  [liq.lockservice] (Quarkus Main Thread) Successfully acquired change log lock
+2025-06-07 21:25:57,141 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[202335] INFO  [liq.changelog] (Quarkus Main Thread) Reading from public.databasechangelog
+2025-06-07 21:25:57,158 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[202335] INFO  [liq.command] (Quarkus Main Thread) Command execution complete
+2025-06-07 21:25:57,198 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[202335] INFO  [liq.changelog] (Quarkus Main Thread) Reading from public.databasechangelog
+2025-06-07 21:25:57,217 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[202335] INFO  [liq.changelog] (Quarkus Main Thread) Reading from public.databasechangelog
+2025-06-07 21:25:57,222 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[202335] INFO  [liq.util] (Quarkus Main Thread) UPDATE SUMMARY
+2025-06-07 21:25:57,223 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[202335] INFO  [liq.util] (Quarkus Main Thread) Run:                          0
+2025-06-07 21:25:57,223 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[202335] INFO  [liq.util] (Quarkus Main Thread) Previously run:               4
+2025-06-07 21:25:57,223 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[202335] INFO  [liq.util] (Quarkus Main Thread) Filtered out:                 0
+2025-06-07 21:25:57,223 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[202335] INFO  [liq.util] (Quarkus Main Thread) -------------------------------
+2025-06-07 21:25:57,224 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[202335] INFO  [liq.util] (Quarkus Main Thread) Total change sets:            4
+2025-06-07 21:25:57,224 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[202335] INFO  [liq.util] (Quarkus Main Thread) Update summary generated
+2025-06-07 21:25:57,227 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[202335] INFO  [liq.lockservice] (Quarkus Main Thread) Successfully released change log lock
+2025-06-07 21:25:57,228 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[202335] INFO  [liq.command] (Quarkus Main Thread) Command execution complete
+2025-06-07 21:25:57,231 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[202335] INFO  [liq.lockservice] (Quarkus Main Thread) Successfully released change log lock
+2025-06-07 21:25:57,556 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[202335] WARN  [io.qua.grp.run.GrpcServerRecorder] (Quarkus Main Thread) Using legacy gRPC support with a separate HTTP server instance. This is the current default to maintain compatibility.
+You can switch to the new unified HTTP server by setting quarkus.grpc.server.use-separate-server=false
+This change is recommended for new applications and will become the default in future versions.
+
+2025-06-07 21:25:57,696 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[202335] INFO  [io.qua.grp.run.GrpcServerRecorder] (vert.x-eventloop-thread-0) Started gRPC server on 0.0.0.0:8081 [TLS enabled: false]
+2025-06-07 21:25:57,713 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[202335] INFO  [com.dem.HelloLifecycle] (Quarkus Main Thread) Quarkus application 'onStart' method triggered
+2025-06-07 21:25:57,714 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[202335] INFO  [com.dem.HelloStartUp] (Quarkus Main Thread) Post construct method call
+2025-06-07 21:25:57,741 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[202335] INFO  [io.quarkus] (Quarkus Main Thread) quarkus-grpc-demo 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.22.3) started in 4.603s. Listening on: http://localhost:8082
+2025-06-07 21:25:57,742 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[202335] INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
+2025-06-07 21:25:57,742 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[202335] INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, compose, grpc-server, hibernate-orm, hibernate-orm-panache, jdbc-postgresql, liquibase, narayana-jta, rest, rest-client, rest-client-jackson, rest-jackson, smallrye-context-propagation, smallrye-fault-tolerance, smallrye-openapi, swagger-ui, vertx]
+2025-06-07 21:26:18,068 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[202335] INFO  [io.qua.htt.access-log] (vert.x-eventloop-thread-1) 127.0.0.1 - - [07/Jun/2025:21:26:18 +0300] "GET /openapi HTTP/1.1" 200 2907
+2025-06-07 21:26:25,327 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[202335] INFO  [com.dem.HelloLifecycle] (Shutdown thread) Quarkus application 'onStop' method triggered
+2025-06-07 21:26:25,338 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[202335] INFO  [io.quarkus] (Shutdown thread) quarkus-grpc-demo stopped in 0.012s

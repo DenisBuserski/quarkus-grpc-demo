@@ -147,6 +147,7 @@
             <version>2.28.0</version>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -249,11 +250,13 @@
                 <directory>src/main/resources</directory>
             </resource>
         </resources>
+
         <testResources>
             <testResource>
                 <directory>src/test/resources</directory>
             </testResource>
         </testResources>
+
         <sourceDirectory>src/main/java</sourceDirectory>
         <testSourceDirectory>src/test/java</testSourceDirectory>
     </build>
