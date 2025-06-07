@@ -47,6 +47,5 @@ public class WiremockTvProxy implements QuarkusTestResourceLifecycleManager {
         if (wireMockServer != null) {
             wireMockServer.stop();
         }
-
     }
 }
