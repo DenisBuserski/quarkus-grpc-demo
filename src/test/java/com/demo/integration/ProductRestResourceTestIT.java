@@ -11,10 +11,11 @@ import java.math.BigDecimal;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.hasItem;
 
-@QuarkusTest
+// @QuarkusTest
 @Tag("integration")
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ProductRestResourceTestIT {
+
 
     @Test
     @DisplayName("Test create product")

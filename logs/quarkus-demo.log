@@ -1,0 +1,19 @@
+2025-06-07 15:41:51,478 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[44281] INFO  [org.ecl.jet.uti.log] (pool-2-thread-1) Logging initialized @3957ms to org.eclipse.jetty.util.log.Slf4jLog
+2025-06-07 15:41:51,538 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[44281] INFO  [org.ecl.jet.ser.Server] (pool-2-thread-1) jetty-9.4.40.v20210413; built: 2021-04-13T20:42:42.668Z; git: b881a572662e1943a14ae12e7e1207989f218b74; jvm 23.0.1+11-39
+2025-06-07 15:41:51,550 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[44281] INFO  [org.ecl.jet.ser.han.ContextHandler] (pool-2-thread-1) Started o.e.j.s.ServletContextHandler@e17b2b9{/__admin,null,AVAILABLE}
+2025-06-07 15:41:51,552 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[44281] INFO  [org.ecl.jet.ser.han.ContextHandler] (pool-2-thread-1) Started o.e.j.s.ServletContextHandler@1e1332e3{/,null,AVAILABLE}
+2025-06-07 15:41:51,561 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[44281] INFO  [org.ecl.jet.ser.AbstractConnector] (pool-2-thread-1) Started NetworkTrafficServerConnector@881d4d0{HTTP/1.1, (http/1.1, h2c)}{0.0.0.0:8089}
+2025-06-07 15:41:51,561 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[44281] INFO  [org.ecl.jet.ser.Server] (pool-2-thread-1) Started @4041ms
+2025-06-07 15:41:51,742 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[44281] INFO  [org.ecl.jet.ser.han.Con.__admin] (qtp1642993850-101) RequestHandlerClass from context returned com.github.tomakehurst.wiremock.http.AdminRequestHandler. Normalized mapped under returned 'null'
+2025-06-07 15:41:52,016 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[44281] INFO  [org.hib.jpa.int.uti.LogHelper] (main) HHH000204: Processing PersistenceUnitInfo [name: <default>]
+2025-06-07 15:41:52,057 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[44281] INFO  [org.hib.Version] (main) HHH000412: Hibernate ORM core version 6.6.14.Final
+2025-06-07 15:41:52,123 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[44281] WARN  [org.hib.orm.deprecation] (main) HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-06-07 15:41:52,131 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[44281] INFO  [org.hib.orm.con.pooling] (main) HHH10001005: Database info:
+	Database JDBC URL [undefined/unknown]
+	Database driver: undefined/unknown
+	Database version: 2.3.230
+	Autocommit mode: undefined/unknown
+	Isolation level: <unknown>
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-06-07 15:41:52,317 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[44281] WARN  [io.qua.config] (main) Unrecognized configuration key "quarkus.grpc.server.enable" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo

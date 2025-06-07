@@ -1,0 +1,27 @@
+2025-06-07 11:55:00,480 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[18354] WARN  [io.qua.config] (Quarkus Main Thread) Unrecognized configuration key "quarkus.grpc.server.enable" was provided; it will be ignored; verify that the dependency extension for this configuration is set or that you did not make a typo
+2025-06-07 11:55:01,067 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[18354] INFO  [liq.database] (Quarkus Main Thread) Set default schema name to public
+2025-06-07 11:55:01,149 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[18354] INFO  [liq.lockservice] (Quarkus Main Thread) Successfully acquired change log lock
+2025-06-07 11:55:01,509 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[18354] INFO  [liq.changelog] (Quarkus Main Thread) Reading from public.databasechangelog
+2025-06-07 11:55:01,533 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[18354] INFO  [liq.command] (Quarkus Main Thread) Command execution complete
+2025-06-07 11:55:01,581 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[18354] INFO  [liq.changelog] (Quarkus Main Thread) Reading from public.databasechangelog
+2025-06-07 11:55:01,604 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[18354] INFO  [liq.changelog] (Quarkus Main Thread) Reading from public.databasechangelog
+2025-06-07 11:55:01,612 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[18354] INFO  [liq.util] (Quarkus Main Thread) UPDATE SUMMARY
+2025-06-07 11:55:01,613 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[18354] INFO  [liq.util] (Quarkus Main Thread) Run:                          0
+2025-06-07 11:55:01,613 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[18354] INFO  [liq.util] (Quarkus Main Thread) Previously run:               4
+2025-06-07 11:55:01,614 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[18354] INFO  [liq.util] (Quarkus Main Thread) Filtered out:                 0
+2025-06-07 11:55:01,614 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[18354] INFO  [liq.util] (Quarkus Main Thread) -------------------------------
+2025-06-07 11:55:01,615 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[18354] INFO  [liq.util] (Quarkus Main Thread) Total change sets:            4
+2025-06-07 11:55:01,616 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[18354] INFO  [liq.util] (Quarkus Main Thread) Update summary generated
+2025-06-07 11:55:01,625 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[18354] INFO  [liq.lockservice] (Quarkus Main Thread) Successfully released change log lock
+2025-06-07 11:55:01,626 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[18354] INFO  [liq.command] (Quarkus Main Thread) Command execution complete
+2025-06-07 11:55:01,631 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[18354] INFO  [liq.lockservice] (Quarkus Main Thread) Successfully released change log lock
+2025-06-07 11:55:02,131 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[18354] WARN  [io.qua.grp.run.GrpcServerRecorder] (Quarkus Main Thread) Using legacy gRPC support with a separate HTTP server instance. This is the current default to maintain compatibility.
+You can switch to the new unified HTTP server by setting quarkus.grpc.server.use-separate-server=false
+This change is recommended for new applications and will become the default in future versions.
+
+2025-06-07 11:55:02,344 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[18354] INFO  [io.qua.grp.run.GrpcServerRecorder] (vert.x-eventloop-thread-0) Started gRPC server on 0.0.0.0:8081 [TLS enabled: false]
+2025-06-07 11:55:02,367 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[18354] INFO  [com.dem.HelloLifecycle] (Quarkus Main Thread) Quarkus application 'onStart' method triggered
+2025-06-07 11:55:02,368 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[18354] INFO  [com.dem.HelloStartUp] (Quarkus Main Thread) Post construct method call
+2025-06-07 11:55:02,406 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[18354] INFO  [io.quarkus] (Quarkus Main Thread) quarkus-grpc-demo 1.0.0-SNAPSHOT on JVM (powered by Quarkus 3.22.3) started in 5.840s. Listening on: http://localhost:8082
+2025-06-07 11:55:02,407 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[18354] INFO  [io.quarkus] (Quarkus Main Thread) Profile dev activated. Live Coding activated.
+2025-06-07 11:55:02,408 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[18354] INFO  [io.quarkus] (Quarkus Main Thread) Installed features: [agroal, cdi, compose, grpc-server, hibernate-orm, hibernate-orm-panache, jdbc-postgresql, liquibase, narayana-jta, rest, rest-client, rest-client-jackson, rest-jackson, smallrye-context-propagation, smallrye-fault-tolerance, smallrye-openapi, swagger-ui, vertx]

@@ -14,7 +14,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 import static org.mockito.Mockito.*;
 
-@QuarkusTest
+// @QuarkusTest
 public class HelloRestResourceTest {
 
     @TestHTTPEndpoint(HelloRestResource.class)

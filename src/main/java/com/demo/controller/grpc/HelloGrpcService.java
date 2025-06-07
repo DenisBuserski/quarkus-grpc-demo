@@ -27,6 +27,7 @@ public class HelloGrpcService implements HelloGrpc {
     @Override
     public Uni<ProductResponse> insertProduct(ProductRequest productRequest) {
         ProductDTO productDTO = mapProductRequestToProductDTO(productRequest);
+        log.info("Insert product via gRPC");
         return Uni.createFrom()
                 .item(() -> productService.insertProduct(productDTO))
                 .runSubscriptionOn(Infrastructure.getDefaultWorkerPool())
@@ -53,6 +54,7 @@ public class HelloGrpcService implements HelloGrpc {
     @Override
     public Uni<ProductResponse> getProductById(ProductIdRequest request) {
         long productId = request.getId();
+        log.info("Get product via gRPC");
         return Uni.createFrom()
                 .item(() -> productService.findProductById(productId))
                 .runSubscriptionOn(Infrastructure.getDefaultWorkerPool())
@@ -68,6 +70,7 @@ public class HelloGrpcService implements HelloGrpc {
 
     @Override
     public Uni<HelloReply> sayHello(HelloRequest request) {
+        log.info("Say hello via gRPC");
         return Uni.createFrom()
                 .item("Hello " + request.getName() + "!")
                 .map(msg -> HelloReply.newBuilder().setMessage(msg).build());
