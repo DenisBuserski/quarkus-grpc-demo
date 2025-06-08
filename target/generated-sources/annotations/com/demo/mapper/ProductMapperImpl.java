@@ -8,7 +8,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-06-07T21:37:47+0300",
+    date = "2025-06-08T14:00:20+0300",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 23.0.1 (Oracle Corporation)"
 )
 @Singleton
@@ -21,8 +21,12 @@ public class ProductMapperImpl implements ProductMapper {
             return null;
         }
 
-        ProductRestResponse productRestResponse = new ProductRestResponse();
+        ProductRestResponse.ProductRestResponseBuilder productRestResponse = ProductRestResponse.builder();
 
-        return productRestResponse;
+        productRestResponse.name( product.getName() );
+        productRestResponse.price( product.getPrice() );
+        productRestResponse.quantity( product.getQuantity() );
+
+        return productRestResponse.build();
     }
 }

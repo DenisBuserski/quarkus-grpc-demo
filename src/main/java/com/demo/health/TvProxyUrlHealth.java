@@ -15,6 +15,5 @@ public class TvProxyUrlHealth {
     @Liveness
     HealthCheck url() {
         return new UrlHealthCheck(url).name("External URL API check");
-
     }
 }

@@ -10,6 +10,11 @@ import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import org.eclipse.microprofile.metrics.MetricUnits;
+import org.eclipse.microprofile.metrics.annotation.Counted;
+import org.eclipse.microprofile.metrics.annotation.Gauge;
+import org.eclipse.microprofile.metrics.annotation.Metered;
+import org.eclipse.microprofile.metrics.annotation.Timed;
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
@@ -84,6 +89,16 @@ public class ProductRestResource {
             responseCode = "404",
             description = "No Product found",
             content = @Content(mediaType = MediaType.APPLICATION_JSON))
+    @Counted(name = "getProduct", description = "How many time was the method has been invoked")
+    @Timed(
+            name = "timeToGetProduct",
+            description = "How long does it take to invoke the method",
+            unit = MetricUnits.MILLISECONDS)
+    @Metered(name = "meteredGetProduct", description = "Measures throughput of the method")
+    @Gauge(
+            name = "gaugeGetProduct",
+            description = "Time of gaugeGetProduct",
+            unit = "correctness")
     public Response getProduct(
             @Parameter(
                     description = "Product id",
