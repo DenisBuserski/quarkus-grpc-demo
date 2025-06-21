@@ -11,8 +11,11 @@ import java.util.Optional;
 
 @ApplicationScoped
 public class ProductService {
-    @Inject
     ProductRepository productRepository;
+
+    public ProductService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
 
     public Optional<Product> findProductById(Long id) {
         return productRepository.findProductById(id);

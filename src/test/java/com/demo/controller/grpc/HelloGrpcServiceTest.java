@@ -56,7 +56,9 @@ class HelloGrpcServiceTest {
     @Test
     @DisplayName("Test insert product")
     public void testInsertProduct() {
-        ProductResponse response = helloGrpcService.insertProduct(mockProductRequest).await().indefinitely();
+        ProductResponse response = helloGrpcService.insertProduct(mockProductRequest)
+                .await()
+                .indefinitely();
 
         assertEquals("Apple", response.getName());
         assertEquals("19.99", response.getPrice());
@@ -65,6 +67,7 @@ class HelloGrpcServiceTest {
 
     @Test
     public void testHello() {
+        // TODO: Fix test
         HelloReply reply = helloGrpcService.sayHello(HelloRequest.newBuilder().setName("Neo").build())
                 .await()
                 .atMost(Duration.ofSeconds(5));
@@ -73,8 +76,13 @@ class HelloGrpcServiceTest {
 
     @Test
     public void testNumberStream() {
+        // TODO: Fix test
         Multi<NumberResponse> responses = helloGrpcService.streamRandomNumbers(NumberRequest.newBuilder().setCount(2).build());
-        List<Long> values = responses.map(response -> response.getValue()).subscribe().asStream().collect(Collectors.toList());
+        List<Long> values = responses.map(response -> response.getValue())
+                .subscribe()
+                .asStream()
+                .collect(Collectors.toList());
+
         assertEquals(2, values.size());
         assertTrue(values.get(0) <= 100);
         assertTrue(values.get(0) >= 0);

@@ -28,11 +28,13 @@ import java.util.Optional;
 @Path("/product")
 @Tag(name = "ProductRestResource", description = "REST endpoint for products")
 public class ProductRestResource {
-    @Inject
     ProductService productService;
-
-    @Inject
     ProductMapper productMapper;
+
+    public ProductRestResource(ProductService productService, ProductMapper productMapper) {
+        this.productService = productService;
+        this.productMapper = productMapper;
+    }
 
     @POST
     @Path("/create")

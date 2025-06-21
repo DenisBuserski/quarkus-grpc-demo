@@ -2,6 +2,8 @@ package com.demo.controller.rest;
 
 import com.demo.config.CustomConfig;
 import com.demo.service.HelloRestService;
+import jakarta.annotation.security.PermitAll;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -22,6 +24,7 @@ public class HelloRestResource {
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
+    @PermitAll // Allow everyone to use this endpoint
     @Operation(
             operationId = "helloID",
             summary = "Say Hello",
@@ -37,6 +40,7 @@ public class HelloRestResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     @Path("/greeting/{name}")
+    @RolesAllowed({"admin", "jwt-user"})
     public String greeting(@PathParam("name") String name) {
         return helloRestService.greeting(name);
     }
@@ -44,9 +48,8 @@ public class HelloRestResource {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     @Path("/test")
+    @RolesAllowed({"admin", "jwt-user"})
     public String test() {
         return customConfig.message();
     }
-
-
 }

@@ -1,8 +1,9 @@
-package com.demo.service;
+package com.demo.unit.service;
 
 import com.demo.model.Product;
 import com.demo.dto.ProductDTO;
 import com.demo.repository.ProductRepository;
+import com.demo.service.ProductService;
 import io.quarkus.test.InjectMock;
 import io.quarkus.test.TestTransaction;
 import org.junit.jupiter.api.DisplayName;
@@ -21,6 +22,8 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class ProductServiceTest {
+    // TODO: Fix tests
+
     @Mock
     ProductRepository productRepository;
 

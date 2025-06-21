@@ -5,7 +5,11 @@ import io.quarkus.test.InjectMock;
 import io.quarkus.test.common.http.TestHTTPEndpoint;
 import io.quarkus.test.common.http.TestHTTPResource;
 import io.quarkus.test.junit.QuarkusTest;
+import io.quarkus.test.security.TestSecurity;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 
 import java.net.URL;
@@ -14,10 +18,11 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.is;
 import static org.mockito.Mockito.*;
 
-// @QuarkusTest
+@QuarkusTest
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@TestHTTPEndpoint(HelloRestResource.class)
 public class HelloRestResourceTest {
 
-    @TestHTTPEndpoint(HelloRestResource.class)
     @TestHTTPResource
     URL url;
 
@@ -25,6 +30,7 @@ public class HelloRestResourceTest {
     HelloRestService helloRestService;
 
     @Test
+    @Order(1)
     public void testHelloEndpoint() {
         when(helloRestService.hello()).thenReturn("Hello");
 
@@ -38,6 +44,8 @@ public class HelloRestResourceTest {
     }
 
     @Test
+    @Order(2)
+    @TestSecurity(user = "testUser", roles = {"jwt-user"})
     public void testGreetingEndpoint() {
         String name = "Test";
         when(helloRestService.greeting(name)).thenReturn("Hello " + name);

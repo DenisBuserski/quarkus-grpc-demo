@@ -1,2 +1,2 @@
-2025-06-08 15:01:24,382 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[8348] INFO  [com.dem.HelloLifecycle] (Shutdown thread) Quarkus application 'onStop' method triggered
-2025-06-08 15:01:24,389 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[8348] INFO  [io.quarkus] (Shutdown thread) quarkus-grpc-demo stopped in 0.007s
+2025-06-21 15:54:24,396 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[466795] INFO  [com.dem.con.grp.HelloGrpcService] (main) Say hello via gRPC
+2025-06-21 15:54:24,450 dev-personal /usr/lib/jvm/jdk-23.0.1-oracle-x64/bin/java[466795] INFO  [com.dem.con.grp.HelloGrpcService] (main) Insert product via gRPC
