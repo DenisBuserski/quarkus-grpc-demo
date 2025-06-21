@@ -6,7 +6,3 @@ Before starting the application, go to the folder `docker/docker-compose.yaml` a
 ```bash
 docker compose up -d
 ```
-Start the application:
-```bash
-./mvnw quarkus:dev
-```
